@@ -35,11 +35,11 @@ const Payment = () => {
 
   return (
     <StepContainer
-      title="Payment"
+      title="Maksmine"
       index={isSame ? 3 : 4}
       closedState={
         <div className="px-8 pb-8 text-small-regular">
-          <p>Enter your address to see available payment options.</p>
+          <p>Lisa oma aadress, et näha maksevõimalusi.</p>
         </div>
       }
     >

@@ -26,7 +26,7 @@ const SearchMenu = () => {
               onClick={() => setScreen("main")}
               className="text-small-semi uppercase"
             >
-              Cancel
+              Sulge
             </button>
           </div>
         </div>

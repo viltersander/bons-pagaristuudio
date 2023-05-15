@@ -5,7 +5,7 @@ import { useCart, useRegions } from "medusa-react"
 import { forwardRef, useImperativeHandle, useMemo, useRef } from "react"
 
 const CountrySelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
-  ({ placeholder = "Country", ...props }, ref) => {
+  ({ placeholder = "Riik", ...props }, ref) => {
     const innerRef = useRef<HTMLSelectElement>(null)
 
     useImperativeHandle<HTMLSelectElement | null, HTMLSelectElement | null>(

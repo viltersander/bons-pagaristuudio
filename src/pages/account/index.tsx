@@ -8,7 +8,7 @@ import { NextPageWithLayout } from "types/global"
 const Account: NextPageWithLayout = () => {
   return (
     <>
-      <Head title="Account" description="Overview of your account activity." />
+      <Head title="Account" description="Ülevaade kasutaja tegemistest." />
       <OverviewTemplate />
     </>
   )

@@ -23,7 +23,7 @@ const Register = () => {
   const router = useRouter()
 
   const handleError = (e: Error) => {
-    setAuthError("An error occured. Please try again.")
+    setAuthError("Viga. Palun proovi hiljem uuesti.")
   }
 
   const {
@@ -49,41 +49,42 @@ const Register = () => {
           <Spinner size={24} />
         </div>
       )}
-      <h1 className="text-large-semi uppercase mb-6">Become a Acme Member</h1>
+      <h1 className="text-large-semi uppercase mb-6">Hakka Bönsi liikmeks</h1>
       <p className="text-center text-base-regular text-gray-700 mb-4">
-        Create your Acme Member profile, and get access to an enhanced shopping
-        experience.
+        Tee omale Bönsi kasutaja täiustatud ostukogemuse saamiseks.
       </p>
       <form className="w-full flex flex-col" onSubmit={onSubmit}>
         <div className="flex flex-col w-full gap-y-2">
           <Input
-            label="First name"
-            {...register("first_name", { required: "First name is required" })}
+            label="Eesnimi"
+            {...register("first_name", { required: "Eesnimi on nõutud" })}
             autoComplete="given-name"
             errors={errors}
           />
           <Input
-            label="Last name"
-            {...register("last_name", { required: "Last name is required" })}
+            label="Perekonnanimi"
+            {...register("last_name", { required: "Perekonnanimi on nõutud" })}
             autoComplete="family-name"
             errors={errors}
           />
           <Input
             label="Email"
-            {...register("email", { required: "Email is required" })}
+            {...register("email", { required: "Email on nõutud" })}
             autoComplete="email"
             errors={errors}
           />
           <Input
-            label="Phone"
-            {...register("phone")}
+            label="Telefon"
+            {...register("phone", {
+              required: "Telefon on nõutud",
+            })}
             autoComplete="tel"
             errors={errors}
           />
           <Input
-            label="Password"
+            label="Parool"
             {...register("password", {
-              required: "Password is required",
+              required: "Parool on nõutud",
             })}
             type="password"
             autoComplete="new-password"
@@ -93,30 +94,30 @@ const Register = () => {
         {authError && (
           <div>
             <span className="text-rose-500 w-full text-small-regular">
-              These credentials do not match our records
+              Sisestasite valed andmed
             </span>
           </div>
         )}
         <span className="text-center text-gray-700 text-small-regular mt-6">
-          By creating an account, you agree to Acme&apos;s{" "}
+          Kasutaja loomisel, nõustute Bönsi{" "}
           <Link href="/content/privacy-policy">
-            <a className="underline">Privacy Policy</a>
+            <a className="underline">Privaatsuspoliitika</a>
           </Link>{" "}
-          and{" "}
+          ja{" "}
           <Link href="/content/terms-of-use">
-            <a className="underline">Terms of Use</a>
+            <a className="underline">Tingimustega</a>
           </Link>
           .
         </span>
-        <Button className="mt-6">Join</Button>
+        <Button className="mt-6">Liitu</Button>
       </form>
       <span className="text-center text-gray-700 text-small-regular mt-6">
-        Already a member?{" "}
+        Olete ju liitunud?{" "}
         <button
           onClick={() => setCurrentView(LOGIN_VIEW.SIGN_IN)}
           className="underline"
         >
-          Sign in
+          Logi sisse
         </button>
         .
       </span>

@@ -42,7 +42,7 @@ const CountrySelect = () => {
   }
 
   return (
-    <div onMouseEnter={open} onMouseLeave={close}>
+    <div className="w-[200px]" onMouseEnter={open} onMouseLeave={close}>
       <Listbox
         onChange={handleChange}
         defaultValue={
@@ -51,7 +51,7 @@ const CountrySelect = () => {
             : undefined
         }
       >
-        <Listbox.Button className="py-1 w-full">
+        <Listbox.Button className="py-1 w-[full]">
           <div className="text-small-regular flex items-center gap-x-2 xsmall:justify-end">
             <span>Shipping to:</span>
             {current && (

@@ -13,12 +13,12 @@ type ProductTabsProps = {
 const ProductTabs = ({ product }: ProductTabsProps) => {
   const tabs = useMemo(() => {
     return [
+      // {
+      //   label: "Product Information",
+      //   component: <ProductInfoTab product={product} />,
+      // },
       {
-        label: "Product Information",
-        component: <ProductInfoTab product={product} />,
-      },
-      {
-        label: "Shipping & Returns",
+        label: "Transport",
         component: <ShippingInfoTab />,
       },
     ]
@@ -62,25 +62,25 @@ const ProductInfoTab = ({ product }: ProductTabsProps) => {
       <div className="grid grid-cols-2 gap-x-8">
         <div className="flex flex-col gap-y-4">
           <div>
-            <span className="font-semibold">Material</span>
+            <span className="font-semibold">Materjal</span>
             <p>{product.material ? product.material : "-"}</p>
           </div>
           <div>
-            <span className="font-semibold">Country of origin</span>
+            <span className="font-semibold">Päritoluriik</span>
             <p>{product.origin_country ? product.origin_country : "-"}</p>
           </div>
           <div>
-            <span className="font-semibold">Type</span>
+            <span className="font-semibold">Tüüp</span>
             <p>{product.type ? product.type.value : "-"}</p>
           </div>
         </div>
         <div className="flex flex-col gap-y-4">
           <div>
-            <span className="font-semibold">Weight</span>
+            <span className="font-semibold">Kaal</span>
             <p>{product.weight ? `${product.weight} g` : "-"}</p>
           </div>
           <div>
-            <span className="font-semibold">Dimensions</span>
+            <span className="font-semibold">Mõõdud</span>
             <p>
               {product.length && product.width && product.height
                 ? `${product.length}L x ${product.width}W x ${product.height}H`
@@ -91,7 +91,7 @@ const ProductInfoTab = ({ product }: ProductTabsProps) => {
       </div>
       {product.tags.length ? (
         <div>
-          <span className="font-semibold">Tags</span>
+          <span className="font-semibold">Sildid</span>
         </div>
       ) : null}
     </Tab.Panel>
@@ -105,14 +105,14 @@ const ShippingInfoTab = () => {
         <div className="flex items-start gap-x-2">
           <FastDelivery />
           <div>
-            <span className="font-semibold">Fast delivery</span>
+            <span className="font-semibold">Kiire kohaletoomine</span>
             <p className="max-w-sm">
-              Your package will arrive in 3-5 business days at your pick up
-              location or in the comfort of your home.
+              Teie pakk jõuab kohale 3-5 tööpäeva jooksul teie valitud pakiautomaadi
+              asukohta või mugavalt teie koju.
             </p>
           </div>
         </div>
-        <div className="flex items-start gap-x-2">
+        {/* <div className="flex items-start gap-x-2">
           <Refresh />
           <div>
             <span className="font-semibold">Simple exchanges</span>
@@ -121,8 +121,8 @@ const ShippingInfoTab = () => {
               product for a new one.
             </p>
           </div>
-        </div>
-        <div className="flex items-start gap-x-2">
+        </div> */}
+        {/* <div className="flex items-start gap-x-2">
           <Back />
           <div>
             <span className="font-semibold">Easy returns</span>
@@ -132,7 +132,7 @@ const ShippingInfoTab = () => {
               is hassle-free.
             </p>
           </div>
-        </div>
+        </div> */}
       </div>
     </Tab.Panel>
   )

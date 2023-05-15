@@ -30,7 +30,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
   return (
     <>
       <div
-        className={clsx("lg:hidden sticky inset-x-0 bottom-0", {
+        className={clsx("hidden sticky inset-x-0 bottom-0", {
           "pointer-events-none": !show,
         })}
       >

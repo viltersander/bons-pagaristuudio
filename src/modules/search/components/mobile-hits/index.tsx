@@ -27,7 +27,7 @@ const MobileHits = ({
   return (
     <div className={className}>
       <span className="text-small-regular uppercase text-gray-700">
-        Results
+        Tulemused
       </span>
       <div className="grid grid-cols-1 py-4">
         {hits.map((hit, index) => (

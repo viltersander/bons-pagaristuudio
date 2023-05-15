@@ -44,8 +44,8 @@ const Confirmed: NextPageWithLayout = () => {
     return (
       <>
         <Head
-          title="Order Confirmed"
-          description="You purchase was successful"
+          title="Tellimus kinnitatud"
+          description="Teie ost õnnestus"
         />
 
         <OrderCompletedTemplate order={data} />

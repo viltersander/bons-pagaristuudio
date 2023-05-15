@@ -3,20 +3,25 @@ import Link from "next/link"
 import { ProductPreviewType } from "types/global"
 import Thumbnail from "../thumbnail"
 
+type ProductPreviewProps = ProductPreviewType & {
+  onClick?: (e: React.MouseEvent) => void;
+};
+
 const ProductPreview = ({
   title,
   handle,
   thumbnail,
   price,
-}: ProductPreviewType) => {
+  onClick,
+}: ProductPreviewProps) => {
   return (
     <Link href={`/products/${handle}`}>
-      <a>
-        <div>
+      <a onClick={onClick}>
+        <div className="w-32 md:w-48 lg:w-60 sm:w-60">
           <Thumbnail thumbnail={thumbnail} size="full" />
-          <div className="text-base-regular mt-2">
-            <span>{title}</span>
-            <div className="flex items-center gap-x-2 mt-1">
+          <div className="text-base-regular p-4 pt-4 border-2 rounded-b">
+            <span className="break-words">{title}</span>
+            <div className="flex items-center gap-x-2 mt-2">
               {price ? (
                 <>
                   {price.price_type === "sale" && (

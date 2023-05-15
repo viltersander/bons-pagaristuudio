@@ -1,24 +1,67 @@
 import { useFeaturedProductsQuery } from "@lib/hooks/use-layout-data"
-import UnderlineLink from "@modules/common/components/underline-link"
-import ProductPreview from "@modules/products/components/product-preview"
-import SkeletonProductPreview from "@modules/skeletons/components/skeleton-product-preview"
+import Button from "@modules/common/components/button"
+import Image from "next/image"
+
 
 const FeaturedProducts = () => {
   const { data } = useFeaturedProductsQuery()
 
   return (
-    <div className="py-12">
-      <div className="content-container py-12">
-        <div className="flex flex-col items-center text-center mb-16">
-          <span className="text-base-regular text-gray-600 mb-6">
-            Latest products
-          </span>
-          <p className="text-2xl-regular text-gray-900 max-w-lg mb-4">
-            Our newest styles are here to help you look your best.
-          </p>
-          <UnderlineLink href="/store">Explore products</UnderlineLink>
+    <div className="py-12 mt-10" style={{
+      backgroundImage: `url('/images/toodete-taust.png')`,
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+    }}>
+      <div className="content-container py-12" id="products">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 mt-12 lg:grid-cols-3 max-w-screen-lg w-full mx-auto flex-wrap px-6 mb-10">
+          <a href="/kringlid"> 
+          <div className="w-76 p-2 border drop-shadow-md rounded lg:mb-10 bg-white">
+            <Image
+              src="/images/magusad-kringlid.png"
+              alt="Image 1"
+              width={500}
+              height={500}
+              objectFit="cover"
+              className="rounded"
+            />
+            <h1 className="text-center mt-4 ">Magusad kringlid</h1>
+            <p className="mt-4 p-4 pb-6 text-start">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia </p>
+            <Button>Tutvu lähemalt</Button>
+          </div>
+          </a>
+          <a href="/kringlid">
+          <div className="w-76 p-2 border drop-shadow-md rounded lg:mt-10 bg-white">
+            <Image
+              src="/images/soolased-kringlid.png"
+              alt="Image 1"
+              width={500}
+              height={500}
+              objectFit="cover"
+              className="rounded"
+            />
+            <h1 className="text-center mt-4">Soolased kringlid</h1>
+            <p className="mt-4 p-4 pb-6 text-start">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia </p>
+            <Button>Tutvu lähemalt</Button>
+          </div>
+          </a>
+          <a href="/store">
+          <div className="w-76 p-2 border drop-shadow-md rounded lg:mb-10 bg-white">
+            <Image
+              src="/images/küpsised.png"
+              alt="Image 1"
+              width={500}
+              height={500}
+              objectFit="cover"
+              className="rounded"
+            />
+            <h1 className="text-center mt-4">Küpsised</h1>
+            <p className="mt-4 p-4 pb-6 text-start">Meie küpsiseid saab tellida üle Eesti DPD või SmartPosti automaatidesse.</p>
+            <Button>Tutvu lähemalt</Button>
+          </div>
+          </a>
         </div>
-        <ul className="grid grid-cols-2 small:grid-cols-4 gap-x-4 gap-y-8">
+        {/* <ul className="grid grid-cols-2 small:grid-cols-4 gap-x-4 gap-y-8">
           {data
             ? data.map((product) => (
                 <li key={product.id}>
@@ -30,7 +73,7 @@ const FeaturedProducts = () => {
                   <SkeletonProductPreview />
                 </li>
               ))}
-        </ul>
+        </ul> */}
       </div>
     </div>
   )

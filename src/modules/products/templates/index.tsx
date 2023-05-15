@@ -20,7 +20,7 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
   return (
     <ProductProvider product={product}>
       <div className="content-container flex flex-col small:flex-row small:items-start py-6 relative">
-        <div className="flex flex-col gap-y-8 w-full">
+        <div className="flex flex-col gap-y-8  w-full sm:w-[70%] md:w-[50%] lg:w-[50%] content-container">
           <ImageGallery images={product.images} />
         </div>
         <div

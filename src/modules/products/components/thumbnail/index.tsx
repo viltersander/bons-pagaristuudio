@@ -42,7 +42,7 @@ const ImageOrPlaceholder = ({
       layout="fill"
       objectFit="cover"
       objectPosition="center"
-      className="absolute inset-0"
+      className="absolute inset-0 rounded-t"
       draggable={false}
     />
   ) : (

@@ -21,24 +21,67 @@ const DropdownMenu = () => {
     useFeaturedProductsQuery()
 
   return (
-    <div
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-      className="h-full"
-    >
-      <div className="flex items-center h-full">
+      <div className="flex items-center h-full pl-4">
         <Popover className="h-full flex">
           <>
-            <Link href="/shop" passHref>
+            <Link href="/" passHref>
               <a className="relative flex h-full">
-                <Popover.Button
+                <button
+                  className={clsx(
+                    "relative h-full flex items-center transition-all ease-out duration-200"
+                  )}
+                  onClick={() => push("/")}
+                >
+                  Avaleht
+                </button>
+              </a>
+            </Link>
+            <Link href="/store" passHref>
+              <a className="relative flex pl-6 h-full">
+                <button
                   className={clsx(
                     "relative h-full flex items-center transition-all ease-out duration-200"
                   )}
                   onClick={() => push("/store")}
                 >
-                  Store
-                </Popover.Button>
+                  Kringlid
+                </button>
+              </a>
+            </Link>
+            <Link href="/store" passHref>
+              <a className="relative flex h-full pl-6">
+                <button
+                  className={clsx(
+                    "relative h-full flex items-center transition-all ease-out duration-200"
+                  )}
+                  onClick={() => push("/store")}
+                >
+                  Küpsised
+                </button>
+              </a>
+            </Link>
+            <Link href="/blog" passHref>
+              <a className="relative flex pl-6 h-full">
+                <button
+                  className={clsx(
+                    "relative h-full flex items-center transition-all ease-out duration-200"
+                  )}
+                  onClick={() => push("/blog")}
+                >
+                  Blogi
+                </button>
+              </a>
+            </Link>
+            <Link href="/contacts" passHref>
+              <a className="relative flex pl-6 h-full">
+                <button
+                  className={clsx(
+                    "relative h-full flex items-center transition-all ease-out duration-200"
+                  )}
+                  onClick={() => push("/contacts")}
+                >
+                  Kontaktid
+                </button>
               </a>
             </Link>
 
@@ -113,7 +156,6 @@ const DropdownMenu = () => {
           </>
         </Popover>
       </div>
-    </div>
   )
 }
 

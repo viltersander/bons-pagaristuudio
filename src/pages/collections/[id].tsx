@@ -75,7 +75,7 @@ const CollectionPage: NextPageWithLayout<PrefetchedPageProps> = ({
   if (isSuccess) {
     return (
       <>
-        <Head title={data.title} description={`${data.title} collection`} />
+        <Head title={data.title} description={`${data.title} kategooria`} />
         <CollectionTemplate collection={data} />
       </>
     )

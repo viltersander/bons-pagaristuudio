@@ -2,12 +2,11 @@ import OrderOverview from "../components/order-overview"
 
 const OrdersTemplate = () => {
   return (
-    <div className="w-full">
+    <div className="w-full p-4">
       <div className="mb-8 flex flex-col gap-y-4">
-        <h1 className="text-2xl-semi">Orders</h1>
+        <h1 className="text-2xl-semi">Tellimused</h1>
         <p className="text-base-regular">
-          View your previous orders and their status. You can also create
-          returns or exchanges for your orders if needed.
+          Vaadake oma eelmisi tellimusi ja nende olekut. Saate vajadusel toote tagastada või vahetada tellimust, kui selleks on vajadust.
         </p>
       </div>
       <div>

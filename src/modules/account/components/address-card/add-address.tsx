@@ -79,7 +79,7 @@ const AddAddress: React.FC = () => {
       })
       .catch(() => {
         setSubmitting(false)
-        setError("Failed to add address, please try again.")
+        setError("Ei saanud aadressi lisada, palun proovi uuesti.")
       })
   })
 
@@ -89,71 +89,71 @@ const AddAddress: React.FC = () => {
         className="border border-gray-200 p-5 min-h-[220px] h-full w-full flex flex-col justify-between"
         onClick={open}
       >
-        <span className="text-base-semi">New address</span>
+        <span className="text-base-semi">Uus aadress</span>
         <Plus size={24} />
       </button>
 
       <Modal isOpen={state} close={handleClose}>
-        <Modal.Title>Add address</Modal.Title>
+        <Modal.Title>Lisa aaddress</Modal.Title>
         <Modal.Body>
           <div className="grid grid-cols-1 gap-y-2">
             <div className="grid grid-cols-2 gap-x-2">
               <Input
-                label="First name"
+                label="Eesnimi"
                 {...register("first_name", {
-                  required: "First name is required",
+                  required: "Eesnimi on nõutud",
                 })}
                 required
                 errors={errors}
                 autoComplete="given-name"
               />
               <Input
-                label="Last name"
+                label="Perekonnanimi"
                 {...register("last_name", {
-                  required: "Last name is required",
+                  required: "Perekonnanimi on nõutud",
                 })}
                 required
                 errors={errors}
                 autoComplete="family-name"
               />
             </div>
-            <Input label="Company" {...register("company")} errors={errors} />
+            <Input label="Firma" {...register("company")} errors={errors} />
             <Input
-              label="Address"
+              label="Aadress"
               {...register("address_1", {
-                required: "Address is required",
+                required: "Aadress on nõutud",
               })}
               required
               errors={errors}
               autoComplete="address-line1"
             />
             <Input
-              label="Apartment, suite, etc."
+              label="Korterid, sviidid jne."
               {...register("address_2")}
               errors={errors}
               autoComplete="address-line2"
             />
             <div className="grid grid-cols-[144px_1fr] gap-x-2">
               <Input
-                label="Postal code"
+                label="Postiindeks"
                 {...register("postal_code", {
-                  required: "Postal code is required",
+                  required: "Postiindeks on nõutud",
                 })}
                 required
                 errors={errors}
                 autoComplete="postal-code"
               />
               <Input
-                label="City"
+                label="Linn"
                 {...register("city", {
-                  required: "City is required",
+                  required: "Linn on nõutud",
                 })}
                 errors={errors}
                 required
                 autoComplete="locality"
               />
             </div>
-            <Input
+            {/* <Input
               label="Province / State"
               {...register("province")}
               errors={errors}
@@ -162,11 +162,14 @@ const AddAddress: React.FC = () => {
             <CountrySelect
               {...register("country_code", { required: true })}
               autoComplete="country"
-            />
+            /> */}
             <Input
-              label="Phone"
-              {...register("phone")}
+              label="Telefon"
+              {...register("phone", {
+                required: "Telefon on nõutud",
+              })}
               errors={errors}
+              required
               autoComplete="phone"
             />
           </div>
@@ -179,10 +182,10 @@ const AddAddress: React.FC = () => {
             className="!bg-gray-200 !text-gray-900 !border-gray-200 min-h-0"
             onClick={handleClose}
           >
-            Cancel
+            Tühista
           </Button>
           <Button className="min-h-0" onClick={submit} disabled={submitting}>
-            Save
+            Salvesta
             {submitting && <Spinner />}
           </Button>
         </Modal.Footer>

@@ -66,7 +66,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
             {selectedPrice.price_type === "sale" && (
               <>
                 <p>
-                  <span className="text-gray-500">Original: </span>
+                  <span className="text-gray-500">Originaal: </span>
                   <span className="line-through">
                     {selectedPrice.original_price}
                   </span>
@@ -82,8 +82,8 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
         )}
       </div>
 
-      <Button onClick={addToCart}>
-        {!inStock ? "Out of stock" : "Add to cart"}
+      <Button onClick={addToCart} disabled={!inStock}>
+        {!inStock ? "Välja müüdud" : "Lisa ostukorvi"}
       </Button>
     </div>
   )

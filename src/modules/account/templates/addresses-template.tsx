@@ -9,12 +9,11 @@ const AddressesTemplate = () => {
   }
 
   return (
-    <div className="w-full">
+    <div className="w-full p-4">
       <div className="mb-8 flex flex-col gap-y-4">
-        <h1 className="text-2xl-semi">Shipping Addresses</h1>
+        <h1 className="text-2xl-semi">Tarneaadressid</h1>
         <p className="text-base-regular">
-          View and update your shipping addresses, you can add as many as you
-          like. Saving your addresses will make them available during checkout.
+          Saate vaadata ja värskendada oma tarneaadresse. Saate neid lisada nii palju kui soovite. Kui salvestate oma aadressid, on need kassasse minnes saadaval.
         </p>
       </div>
       <AddressBook customer={customer} />

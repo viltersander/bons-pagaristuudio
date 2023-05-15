@@ -28,11 +28,11 @@ const Modal: React.FC<ModalProps> & {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-gray-700 bg-opacity-75 backdrop-blur-sm" />
+          <div className="fixed inset-0 " />
         </Transition.Child>
 
-        <div className="fixed inset-0 overflow-y-auto">
-          <div className="flex min-h-full h-full items-center justify-center p-4 text-center">
+        <div className="fixed inset-0 overflow-y-auto ">
+          <div className="flex min-h-full h-full items-center lg:justify-end p-4 text-center relative bottom-14 lg:bottom-16">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"

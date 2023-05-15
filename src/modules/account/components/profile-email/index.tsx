@@ -63,7 +63,7 @@ const ProfileEmail: React.FC<MyInformationProps> = ({ customer }) => {
           refetchCustomer()
         },
         onError: () => {
-          setErrorMessage("Email already in use")
+          setErrorMessage("Email on juba kasutuses")
         },
       }
     )
