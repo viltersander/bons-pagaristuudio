@@ -1,27 +1,30 @@
-import { useProductActions } from "@lib/context/product-context"
-import useProductPrice from "@lib/hooks/use-product-price"
-import Button from "@modules/common/components/button"
-import OptionSelect from "@modules/products/components/option-select"
-import clsx from "clsx"
-import Link from "next/link"
-import React, { useMemo } from "react"
-import { Product } from "types/medusa"
+import { useProductActions } from "@lib/context/product-context";
+import useProductPrice from "@lib/hooks/use-product-price";
+import Button from "@modules/common/components/button";
+import OptionSelect from "@modules/products/components/option-select";
+import clsx from "clsx";
+import Link from "next/link";
+import React, { useMemo } from "react";
+import { Product } from "types/medusa";
 
 type ProductActionsProps = {
-  product: Product
-}
+  product: Product;
+};
 
 const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
   const { updateOptions, addToCart, options, inStock, variant } =
-    useProductActions()
+    useProductActions();
 
-  const price = useProductPrice({ id: product.id, variantId: variant?.id })
+  const price = useProductPrice({ id: product.id, variantId: variant?.id });
 
   const selectedPrice = useMemo(() => {
-    const { variantPrice, cheapestPrice } = price
+    const { variantPrice, cheapestPrice } = price;
 
-    return variantPrice || cheapestPrice || null
-  }, [price])
+    return variantPrice || cheapestPrice || null;
+  }, [price]);
+
+  // Check if the product belongs to the "kringlid" collection
+  const isKringlidProduct = product.collection?.handle === "kringlid";
 
   return (
     <div className="flex flex-col gap-y-2">
@@ -48,7 +51,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
                   title={option.title}
                 />
               </div>
-            )
+            );
           })}
         </div>
       )}
@@ -66,7 +69,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
             {selectedPrice.price_type === "sale" && (
               <>
                 <p>
-                  <span className="text-gray-500">Originaal: </span>
+                  <span className="text-gray-500">Originaall: </span>
                   <span className="line-through">
                     {selectedPrice.original_price}
                   </span>
@@ -82,11 +85,22 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
         )}
       </div>
 
-      <Button onClick={addToCart} disabled={!inStock}>
-        {!inStock ? "Välja müüdud" : "Lisa ostukorvi"}
-      </Button>
+      {isKringlidProduct && (
+        <p className="text-red-500 pb-2">
+          NB! Kringleid saab kätte ainult poodi järele tulles! Avatud: T-P kella 9.00 – 16.00, E - SULETUD
+        </p>
+      )}
+      {isKringlidProduct ? (
+        <Link href="/contacts">
+          <Button>Telli</Button>
+        </Link>
+      ) : (
+        <Button onClick={addToCart} disabled={!inStock}>
+          {!inStock ? "Välja müüdud" : "Lisa ostukorvi"}
+        </Button>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default ProductActions
+export default ProductActions;

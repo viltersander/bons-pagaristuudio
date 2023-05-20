@@ -5,7 +5,7 @@ const FooterCTA = () => {
     <div className="w-full">
       <hr />
       <div className="content-container flex flex-col-reverse gap-y-8 small:flex-row small:items-center justify-between py-12 relative">
-        <div className="relative w-full aspect-square small:w-[35%] small:aspect-[28/36] md:min-w-[30%] lg:min-w-[30%] lg:order-2 ">
+        <div className="relative w-full aspect-square small:w-[35%] small:aspect-[28/36] md:min-w-[30%] lg:min-w-[30%] lg:order-2 mt-6">
             <Image
               src="/images/sisevaade.png"
               alt="sisevaade"
@@ -15,7 +15,7 @@ const FooterCTA = () => {
               className="absolute inset-0 sm:pt-6 md:pt-6 rounded-md"
             />
           </div>
-        <div className="w-full pt-2 md:pt-0 lg:pt-0 sm:pt-0">
+        <div className="w-full md:pt-0 lg:pt-0 sm:pt-0">
           <Image
               src="/images/pagaristuudio-logo-kirjaga.png"
               alt="pagaristuudio logo"
@@ -25,10 +25,10 @@ const FooterCTA = () => {
               objectFit="cover"
             />
           <div className="mt-6 w-full">
-            <h2 className="lg:w-[70%]">Eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.
+            <h2 className="lg:w-[70%]">Hubane kodune pagaristuudio Kuressaare kesklinnas. Projekt on toetust saanud Euroopa Regionaalarengult.
             </h2>
             <p className="mt-6 lg:w-[70%]">
-            Eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora. Eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.Eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora.
+            Böns on Kuressaare kesklinnas asuv hubane pagaristuudio, mis oma rahustava ja sooja olemusega kutsub aega maha võtma kuuma kohvi ja maitsva saiakese seltsis. Koha südameks on pagariahi, mille sees valmivad soojad saiad ja maitsvad leivad meelitavad kohale nii hommikusi tööleminejaid, kui ka hiliseid ärkajaid. Lisaks pagaritoodetele on Bönsis oluline koht ka erinevatel kohvijookidel, mille valmistamine on omamoodi kunst ja täppistöö ning tõeline vaatemäng. Oled oodatud meie pagaristuudiosse!
             </p>
           </div>
         </div>
@@ -41,6 +41,7 @@ const FooterCTA = () => {
               height={100}
               quality={90}
               objectFit="cover"
+              className="mt-4"
             />
         </div>
     </div>

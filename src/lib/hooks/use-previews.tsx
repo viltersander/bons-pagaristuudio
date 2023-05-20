@@ -29,7 +29,7 @@ const usePreviews = <T extends InfiniteProductPage>({
 
     return transformedProducts
   }, [pages, region])
-
+  
   return previews
 }
 

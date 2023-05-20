@@ -36,13 +36,13 @@ const DropdownMenu = () => {
                 </button>
               </a>
             </Link>
-            <Link href="/store" passHref>
+            <Link href="/kringlid" passHref>
               <a className="relative flex pl-6 h-full">
                 <button
                   className={clsx(
                     "relative h-full flex items-center transition-all ease-out duration-200"
                   )}
-                  onClick={() => push("/store")}
+                  onClick={() => push("/kringlid")}
                 >
                   Kringlid
                 </button>

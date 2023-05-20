@@ -29,8 +29,7 @@ const InfiniteProducts = ({ params }: InfiniteProductsType) => {
 
     p.is_giftcard = false;
 
-    // Find the collection with the handle "kupsised"
-    const targetCollection = collections?.find((c) => c.handle === "kupsised");
+    const targetCollection = collections?.find((c) => c.handle === "kringlid");
     if (targetCollection) {
       p.collection_id = [targetCollection.id];
     }

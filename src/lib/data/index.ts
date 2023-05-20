@@ -1,9 +1,10 @@
 import { medusaClient } from "@lib/config"
-import { Product, StoreGetProductsParams } from "@medusajs/medusa"
+import { StoreGetProductsParams } from "@medusajs/medusa"
+import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
 
 const COL_LIMIT = 15
 
-const getFeaturedProducts = async (): Promise<Product[]> => {
+const getFeaturedProducts = async (): Promise<PricedProduct[]> => {
   const payload = {} as Record<string, unknown>
 
   if (process.env.FEATURED_PRODUCTS) {
@@ -61,7 +62,7 @@ export const getProductData = async (handle: string) => {
   const product = data[0]
 
   if (!product) {
-    throw new Error(`Product with handle ${handle} not found`)
+    throw new Error(`Käepidemega toodet ${handle} ei leitud`)
   }
 
   return {
@@ -96,7 +97,7 @@ export const getCollectionData = async (id: string) => {
     .catch(() => undefined)
 
   if (!data) {
-    throw new Error(`Collection with handle ${id} not found`)
+    throw new Error(`Käepidemega kollektsioon ${id} ei leitud`)
   }
 
   const additionalData = await getInitialProducts(id)
@@ -125,8 +126,13 @@ export const fetchProductsList = async ({
     ...queryParams,
   })
 
+  console.log("Products:", products)
+  console.log("Count:", count)
+  console.log("Offset:", offset)
+
   return {
     response: { products, count },
     nextPage: count > offset + 12 ? offset + 12 : null,
   }
 }
+

@@ -94,7 +94,7 @@ const AddAddress: React.FC = () => {
       </button>
 
       <Modal isOpen={state} close={handleClose}>
-        <Modal.Title>Lisa aaddress</Modal.Title>
+        <Modal.Title>Lisa aadress</Modal.Title>
         <Modal.Body>
           <div className="grid grid-cols-1 gap-y-2">
             <div className="grid grid-cols-2 gap-x-2">
@@ -153,7 +153,7 @@ const AddAddress: React.FC = () => {
                 autoComplete="locality"
               />
             </div>
-            {/* <Input
+            <Input
               label="Province / State"
               {...register("province")}
               errors={errors}
@@ -162,7 +162,7 @@ const AddAddress: React.FC = () => {
             <CountrySelect
               {...register("country_code", { required: true })}
               autoComplete="country"
-            /> */}
+            />
             <Input
               label="Telefon"
               {...register("phone", {

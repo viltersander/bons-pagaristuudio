@@ -75,8 +75,8 @@ const MainMenu = () => {
                   </button>
                 </a>
               </Link>
-            </li>
-            
+            </li>     
+{/*            
             {collections ? (
               <>
                 {collections.map((collection) => (
@@ -98,8 +98,8 @@ const MainMenu = () => {
                   </li>
                 ))}
               </>
-            ) : null}
-            {/* <li className="bg-gray-50 p-4">
+            ) : null} */}
+            <li className="bg-gray-50 p-4">
               <Link href="/kringlid">
                 <a>
                   <button
@@ -112,7 +112,21 @@ const MainMenu = () => {
                   </button>
                 </a>
               </Link>
-            </li> */}
+            </li>
+            <li className="bg-gray-50 p-4">
+              <Link href="/store">
+                <a>
+                  <button
+                    className="flex items-center justify-between w-full"
+                    onClick={close}
+                  >
+                    <span className="sr-only">Mine küpsiste lehele</span>
+                    <span>Küpsised</span>
+                    <ChevronDown className="-rotate-90" />
+                  </button>
+                </a>
+              </Link>
+            </li>
             <li className="bg-gray-50 p-4">
               <Link href="/blog">
                 <a>
