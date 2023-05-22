@@ -30,7 +30,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
   return (
     <div className="flex flex-col gap-y-2">
       {product.collection && (
-        <Link href={`/collections/${product.collection.id}`}>
+        <Link href={`/collections/${product.collection.id}`} passHref>
           <a className="text-small-regular text-gray-700">
             {product.collection.title}
           </a>
@@ -92,7 +92,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
         </p>
       )}
       {isKringlidProduct ? (
-        <Link href="/contacts">
+        <Link href="/#contacts" passHref>
           <Button>Telli</Button>
         </Link>
       ) : (
