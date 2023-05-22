@@ -9,10 +9,12 @@ import { useCart } from "medusa-react";
 import { useMemo, useState, useRef, useEffect } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import ProductPreview from "../product-preview";
+import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
+
 
 type RelatedProductsProps = {
-  product: Product;
-};
+  product: PricedProduct
+}
 
 const RelatedProducts = ({ product }: RelatedProductsProps) => {
   const { cart } = useCart();
