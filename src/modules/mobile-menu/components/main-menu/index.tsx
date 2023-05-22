@@ -28,7 +28,7 @@ const MainMenu = () => {
     <div className="flex flex-col flex-1">
       <div className="flex items-center justify-between w-full border-b border-gray-200 py-4 px-6">
         <div>
-        <Link href="/">
+        <Link href="/" passHref>
               <Image
                 src="/images/böns-logo.png"
                 width={100}
@@ -63,7 +63,7 @@ const MainMenu = () => {
         <div className="flex flex-col flex-1 text-large-regular text-gray-900">
           <ul className="flex flex-col gap-y-2">
             <li className="bg-gray-50 p-4">
-              <Link href="/">
+              <Link href="/" passHref>
                 <a>
                   <button
                     className="flex items-center justify-between w-full"
@@ -100,7 +100,7 @@ const MainMenu = () => {
               </>
             ) : null} */}
             <li className="bg-gray-50 p-4">
-              <Link href="/kringlid">
+              <Link href="/kringlid" passHref>
                 <a>
                   <button
                     className="flex items-center justify-between w-full"
@@ -114,7 +114,7 @@ const MainMenu = () => {
               </Link>
             </li>
             <li className="bg-gray-50 p-4">
-              <Link href="/store">
+              <Link href="/store" passHref>
                 <a>
                   <button
                     className="flex items-center justify-between w-full"
@@ -128,7 +128,7 @@ const MainMenu = () => {
               </Link>
             </li>
             <li className="bg-gray-50 p-4">
-              <Link href="/blog">
+              <Link href="/blog" passHref>
                 <a>
                   <button
                     className="flex items-center justify-between w-full"
@@ -142,7 +142,7 @@ const MainMenu = () => {
               </Link>
             </li>
             <li className="bg-gray-50 p-4">
-              <Link href="/contacts">
+              <Link href="/#contacts" passHref>
                 <a>
                   <button
                     className="flex items-center justify-between w-full"

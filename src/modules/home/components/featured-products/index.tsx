@@ -15,7 +15,7 @@ const FeaturedProducts = () => {
     }}>
       <div className="content-container py-12" id="products">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 mt-12 lg:grid-cols-3 max-w-screen-lg w-full mx-auto flex-wrap px-6 mb-10">
-          <Link href="/kringlid"> 
+          <Link href="/kringlid" passHref> 
           <div className="w-76 p-2 border drop-shadow-md rounded lg:mb-10 bg-white">
             <Image
               src="/images/magusad-kringlid.png"
@@ -30,7 +30,7 @@ const FeaturedProducts = () => {
             <Button>Tutvu lähemalt</Button>
           </div>
           </Link>
-          <Link href="/kringlid">
+          <Link href="/kringlid" passHref>
           <div className="w-76 p-2 border drop-shadow-md rounded lg:mt-10 bg-white">
             <Image
               src="/images/soolased-kringlid.png"
@@ -45,7 +45,7 @@ const FeaturedProducts = () => {
             <Button>Tutvu lähemalt</Button>
           </div>
           </Link>
-          <Link href="/store">
+          <Link href="/store" passHref>
           <div className="w-76 p-2 border drop-shadow-md rounded lg:mb-10 bg-white">
             <Image
               src="/images/küpsised.png"
