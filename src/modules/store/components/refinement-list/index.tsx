@@ -19,7 +19,7 @@ const RefinementList = ({
 
       try {
         const response = await fetch(
-          "https://bons-pagaristuudio-backend-x8d5-2zhoo1co5-viltersander.vercel.app/store/product-categories?handle=kupsised&include_descendants_tree=true",
+          "https://bons-pagaristuudio-backend-production.up.railway.app/store/product-categories?handle=kupsised&include_descendants_tree=true",
           {
             credentials: "include",
           }
