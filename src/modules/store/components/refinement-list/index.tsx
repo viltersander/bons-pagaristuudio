@@ -83,9 +83,7 @@ const RefinementList = ({
         <div className="flex gap-x-3 small:flex-col small:gap-y-3">
           <span className="text-base-semi">Küpsised</span>
           <ul className="text-base-regular flex items-center gap-x-4 small:grid small:grid-cols-1 small:gap-y-2">
-            {isLoading ? (
-              <span>Laeb...</span>
-            ) : categories.length === 0 ? (
+            {categories.length === 0 ? (
               <span>Pole kategooriaid</span>
             ) : (
               categories.map((category) => (
