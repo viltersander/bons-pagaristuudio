@@ -19,7 +19,7 @@ const RefinementList = ({
 
       try {
         const response = await fetch(
-          "http://localhost:9000/store/product-categories?handle=kringlid&include_descendants_tree=true",
+          "https://bons-pagaristuudio-backend-x8d5-2zhoo1co5-viltersander.vercel.app/store/product-categories?handle=kringlid&include_descendants_tree=true",
           {
             credentials: "include",
           }
