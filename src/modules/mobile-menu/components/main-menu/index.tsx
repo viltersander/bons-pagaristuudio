@@ -142,7 +142,7 @@ const MainMenu = () => {
               </Link>
             </li>
             <li className="bg-gray-50 p-4">
-              <Link href="/#contacts" passHref>
+              <Link href="/#contact" passHref>
                 <a>
                   <button
                     className="flex items-center justify-between w-full"
