@@ -83,14 +83,16 @@ const RefinementList = ({
         <div className="flex gap-x-3 small:flex-col small:gap-y-3">
           <span className="text-base-semi">Kringlid</span>
           <ul className="text-base-regular flex items-center gap-x-4 small:grid small:grid-cols-1 small:gap-y-2">
-          {categories.length === 0 ? (
-              <span>Pole kategooriaid</span>
+            {categories.length > 0 ? (
+              <ul className="text-base-regular flex items-center gap-x-4 small:grid small:grid-cols-1 small:gap-y-2">
+                {categories.map((category) => (
+                  <ul key={category.id}>
+                    {renderSubcategories(category.category_children)}
+                  </ul>
+                ))}
+              </ul>
             ) : (
-              categories.map((category) => (
-                <ul key={category.id}>
-                  {renderSubcategories(category.category_children)}
-                </ul>
-              ))
+              <span>Pole kategooriaid</span>
             )}
           </ul>
         </div>
