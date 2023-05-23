@@ -17,7 +17,7 @@ const ProductPreview = ({
   return (
     <Link href={`/products/${handle}`}>
       <a onClick={onClick}>
-        <div className="w-32 md:w-48 lg:w-60 sm:w-60">
+        <div className="md:w-48 lg:w-60 sm:w-60">
           <Thumbnail thumbnail={thumbnail} size="full" />
           <div className="text-base-regular p-4 pt-4 border-2 rounded-b">
             <span className="break-words">{title}</span>
