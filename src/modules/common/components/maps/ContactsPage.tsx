@@ -2,7 +2,7 @@ import React from 'react';
 import { GoogleMap, Marker, LoadScript } from '@react-google-maps/api';
 
 const ContactsPage = () => {
-  const googleMapsApiKey = 'AIzaSyC7xG5UbeQARp72cC9nufHX7TRxpOZoK_8'; // Replace with your actual API key
+  const googleMapsApiKey = ''; // Replace with your actual API key
 
   const mapOptions = {
     disableDefaultUI: true,
