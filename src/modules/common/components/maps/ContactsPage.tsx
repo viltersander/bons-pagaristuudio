@@ -23,8 +23,8 @@ const ContactsPage: React.FC = () => {
 //   const googleMapsApiKey = ''; // Replace with your actual API key
 
   return (
-    <div className="p-6">
     <div id="contact" style={{ position: 'relative', height: '400px' }}>
+    <div className="p-6">
       {/* <MapComponent
         googleMapURL={`https://maps.googleapis.com/maps/api/js?key=${googleMapsApiKey}`}
         loadingElement={<div className="h-full" />}
