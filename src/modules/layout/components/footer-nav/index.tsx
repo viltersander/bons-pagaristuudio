@@ -14,7 +14,7 @@ const FooterNav = () => {
             <a className="text-regular">Korduvad küsimused</a>
           </Link>
           <Link href="/" passHref>
-            <a className="text-regular">Blogi</a>
+            <a className="text-regular">Galerii</a>
           </Link>
           <div className="flex align-center justify-center gap-8 order-5 lg:order-none md:order-none ">
             <Link href="https://www.instagram.com/bonspagaristuudio/?igshid=YmMyMTA2M2Y%3D&fbclid=IwAR0nqxZTa18PjQoF3vAsjFWxwERGTgFzYCYEBdfTk2i4lHbL3t-yEKmL8GE" passHref>

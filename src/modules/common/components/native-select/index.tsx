@@ -20,7 +20,7 @@ export type NativeSelectProps = {
 const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
   (
     {
-      placeholder = "Vali kogus",
+      placeholder = "Vali...",
       errors,
       touched,
       className,
