@@ -50,7 +50,7 @@ const OrderCard = ({ order }: OrderCardProps) => {
       <div className="uppercase text-large-semi mb-1">#{order.display_id}</div>
       <div className="flex items-center divide-x divide-gray-200 text-small-regular text-gray-700">
         <span className="pr-2">
-          <span>{formatDate(order.created_at)}</span>
+        <span>{formatDate(order.created_at.toISOString())}</span> {/* Update this line */}
         </span>
         <span className="px-2">
           {formatAmount({

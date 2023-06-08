@@ -15,13 +15,19 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
       canceled: "tühistatud",
       paid: "makstud",
       unpaid: "maksmata",
+      shipped: "saadetud",
+      captured: "kinnitatud"
     };
 
     return translations[str] || str;
   };
 
   const formatDate = (date: string) => {
-    const options = { year: "numeric", month: "long", day: "numeric" };
+    const options: Intl.DateTimeFormatOptions = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
     return new Date(date).toLocaleDateString("et-EE", options);
   };
 
@@ -37,7 +43,7 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
         {order.id.split("order_")[1]}
       </span>
       <div className="flex text-gray-700 text-small-regular flex-wrap xsf:gap-x-1 gap-x-2 mt-4">
-        <div>{formatDate(order.created_at)}</div>
+      <span>{formatDate(order.created_at.toISOString())}</span>
         <span className="border-l-2"></span>
         <div>{`${items} ${items !== 1 ? "toodet" : "toode"}`}</div>
       </div>
