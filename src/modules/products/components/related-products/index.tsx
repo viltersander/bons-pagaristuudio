@@ -94,7 +94,7 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
     }
 
     const scrollDistance = contentWidth - sliderWidth;
-    const scrollStep = isMobile ? sliderWidth / 850 : sliderWidth / 3100; // Adjust the scroll step as needed
+    const scrollStep = isMobile ? sliderWidth / 1000 : sliderWidth / 3500; // Adjust the scroll step as needed
 
     const scroll = () => {
       if (!isHovered && isSlideshowPlaying) {
