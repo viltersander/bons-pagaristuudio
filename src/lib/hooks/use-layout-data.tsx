@@ -72,6 +72,8 @@ const fetchFeaturedProducts = async (
         return acc
       }, variants[0])
 
+      const inventoryAvailable = variants.some((variant) => variant.inventory_quantity > 0);
+
       return {
         id: p.id!,
         title: p.title!,
