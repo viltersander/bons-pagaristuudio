@@ -31,14 +31,17 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
     return translations[str] || str;
   };
 
-  const formatDate = (date: string) => {
+  const formatDate = (date: string | Date) => {
     const options: Intl.DateTimeFormatOptions = {
       year: "numeric",
       month: "long",
       day: "numeric",
     };
-    return new Date(date).toLocaleDateString("et-EE", options);
+  
+    const dateString = typeof date === "string" ? date : date.toISOString();
+    return new Date(dateString).toLocaleDateString("et-EE", options);
   };
+  
 
   return (
     <div className="p-10 border-b border-gray-200">
@@ -52,7 +55,7 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
         {order.id.split("order_")[1]}
       </span>
       <div className="flex text-gray-700 text-small-regular flex-wrap xsf:gap-x-1 gap-x-2 mt-4">
-      <span>{formatDate(order.created_at.toISOString())}</span>
+      <span>{formatDate(order.created_at)}</span>
         <span className="border-l-2"></span>
         <div>{`${items} ${items !== 1 ? "toodet" : "toode"}`}</div>
       </div>

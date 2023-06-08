@@ -14,13 +14,15 @@ type OverviewProps = {
   customer?: Omit<Customer, "password_hash">
 }
 
-const formatDate = (date: string) => {
+const formatDate = (date: string | Date) => {
   const options: Intl.DateTimeFormatOptions = {
     year: "numeric",
     month: "long",
     day: "numeric",
   };
-  return new Date(date).toLocaleDateString("et-EE", options);
+
+  const dateString = typeof date === "string" ? date : date.toISOString();
+  return new Date(dateString).toLocaleDateString("et-EE", options);
 };
 
 const Overview = ({ orders, customer }: OverviewProps) => {
@@ -141,7 +143,7 @@ const Overview = ({ orders, customer }: OverviewProps) => {
                                   Kokku 
                                 </span>
                                 <span>
-                                  {formatDate(order.created_at.toISOString())}
+                                  {formatDate(order.created_at)}
                                 </span>
                                 <span>#{order.display_id}</span>
                                 <span>
