@@ -105,7 +105,7 @@ This starter is configured to support using the `medusa-search-meilisearch` plug
 }
 ```
 
-Before you can search you will need to install the plugin in your Medusa server, for a written guide on how to do this – [see our documentation](https://docs.medusajs.com/add-plugins/meilisearch).
+Before you can search you will need to install the plugin in your Medusa server, for a written guide on how to do this – [see documentation](https://docs.medusajs.com/add-plugins/meilisearch).
 
 The search components in this starter are developed with Algolia's `react-instant-search-hooks-web` library which should make it possible for you to seemlesly change your search provider to Algoli instead of MeiliSearch.
 

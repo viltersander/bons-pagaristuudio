@@ -28,11 +28,11 @@ const StepContainer = ({
         })}
         {...props}
       >
-        <div className="text-xl-semi flex items-center gap-x-4 px-8 pb-6 pt-8">
-          <div className="bg-gray-900 w-8 h-8 rounded-full text-white flex justify-center items-center text-sm">
+        <div className="text-xl-semi flex items-center gap-x-4 xsf:px-5 px-8 pb-6 pt-8">
+          <div className="bg-gray-900 w-8 h-8 rounded-full text-white flex justify-center items-center text-sm xsf:h-6 xsf:w-6">
             {index}
           </div>
-          <h2>{title}</h2>
+          <h2 className=" xsf:text-base-regular xsf:font-bold">{title}</h2>
         </div>
         <Disclosure>
           <Disclosure.Panel

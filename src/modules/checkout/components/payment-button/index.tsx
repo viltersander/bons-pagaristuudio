@@ -151,7 +151,7 @@ const StripePaymentButton = ({
         disabled={submitting || disabled || notReady}
         onClick={handlePayment}
       >
-        {submitting ? <Spinner /> : "Checkout"}
+        {submitting ? <Spinner /> : "Kassasse"}
       </Button>
       {errorMessage && (
         <div className="text-red-500 text-small-regular mt-2">

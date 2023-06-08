@@ -13,13 +13,11 @@ const ProfileTemplate = () => {
   }
 
   return (
-    <div className="w-full p-4">
+    <div className="w-full sm:p-4 p-6 xsf:p-4">
       <div className="mb-8 flex flex-col gap-y-4">
         <h1 className="text-2xl-semi">Profiil</h1>
         <p className="text-base-regular">
-            Vaadake ja värskendage oma profiiliteavet, sealhulgas oma nime, e-posti aadressi,
-           ja telefoninumbrit. Samuti saate oma arveldusaadressi värskendada või muuta
-           oma parooli.
+            Vaadake ja värskendage oma profiiliteavet.
         </p>
       </div>
       <div className="flex flex-col gap-y-8 w-full">

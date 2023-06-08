@@ -77,7 +77,7 @@ const AddressSelect = ({ addresses }: AddressSelectProps) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <Listbox.Options className="absolute z-20 w-full overflow-auto text-small-regular bg-white border border-gray-200 border-top-0 max-h-60 focus:outline-none sm:text-sm">
+          <Listbox.Options className="absolute z-20 w-full overflow-auto text-small-regular bg-white border border-gray-200 border-top-0 max-h-60 focus:outline-none sm:text-sm xsf:text-sm">
             {addresses.map((address) => {
               return (
                 <Listbox.Option
@@ -85,7 +85,7 @@ const AddressSelect = ({ addresses }: AddressSelectProps) => {
                   value={address.id}
                   className="cursor-default select-none relative pl-6 pr-10 hover:bg-gray-50 py-4"
                 >
-                  <div className="flex gap-x-4 items-start">
+                  <div className="flex gap-x-4 items-start xsf:gap-x-0">
                     <Radio checked={selected === address.id} />
                     <div className="flex flex-col">
                       <span className="text-left text-base-semi">

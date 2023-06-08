@@ -1,38 +1,55 @@
-import { Order } from "@medusajs/medusa"
+import { Order } from "@medusajs/medusa";
 
 type OrderDetailsProps = {
-  order: Order
-  showStatus?: boolean
-}
+  order: Order;
+  showStatus?: boolean;
+};
 
 const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
-  const items = order.items.reduce((acc, i) => acc + i.quantity, 0)
+  const items = order.items.reduce((acc, i) => acc + i.quantity, 0);
 
   const formatStatus = (str: string) => {
-    const formatted = str.split("_").join(" ")
+    const translations = {
+      not_fulfilled: "pole täidetud",
+      awaiting: "ootel",
+      canceled: "tühistatud",
+      paid: "makstud",
+      unpaid: "maksmata",
+    };
 
-    return formatted.slice(0, 1).toUpperCase() + formatted.slice(1)
-  }
+    return translations[str] || str;
+  };
+
+  const formatDate = (date: string) => {
+    const options = { year: "numeric", month: "long", day: "numeric" };
+    return new Date(date).toLocaleDateString("et-EE", options);
+  };
 
   return (
-    <div className="p-10 border-b border.gray-200">
+    <div className="p-10 border-b border-gray-200">
       <span className="text-gray-700 text-small-regular uppercase">
-        Thank you, your order was successfully placed
+        Täname, teie tellimus sooritati edukalt
       </span>
-      <h1 className="mt-2 uppercase text-2xl-semi">#{order.display_id}</h1>
-      <span>{order.id.split("order_")[1]}</span>
-      <div className="flex items-center text-gray-700 text-small-regular gap-x-4 mt-4">
-        <span>{new Date(order.created_at).toDateString()}</span>
-        <span>{`${items} ${items !== 1 ? "items" : "item"}`}</span>
-        {showStatus && (
-          <>
-            <span>{formatStatus(order.fulfillment_status)}</span>
-            <span>{formatStatus(order.payment_status)}</span>
-          </>
-        )}
+      <h1 className="mt-2 uppercase xsf:text-large-semi sm:text-2xl-semi text-xl-semi">
+        #{order.display_id}
+      </h1>
+      <span className="xsf:text-small-regular text-small-regular break-words">
+        {order.id.split("order_")[1]}
+      </span>
+      <div className="flex text-gray-700 text-small-regular flex-wrap xsf:gap-x-1 gap-x-2 mt-4">
+        <div>{formatDate(order.created_at)}</div>
+        <span className="border-l-2"></span>
+        <div>{`${items} ${items !== 1 ? "toodet" : "toode"}`}</div>
       </div>
+      {showStatus && (
+        <div className="flex mt-2 xsf:flex-col xsf:gap-y-1 text-gray-700 text-small-regular gap-x-2">
+          <div>Täitmine: {formatStatus(order.fulfillment_status)}</div>
+          <span className="border-l-2"></span>
+          <div>Makse olek: {formatStatus(order.payment_status)}</div>
+        </div>
+      )}
     </div>
-  )
-}
+  );
+};
 
-export default OrderDetails
+export default OrderDetails;

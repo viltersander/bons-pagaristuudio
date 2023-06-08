@@ -10,7 +10,7 @@ const AccountNav = () => {
 
   return (
     <div>
-      <div className="small:hidden">
+      <div className="small:hidden ml-3">
         {route !== "/account" && (
           <Link href="/account">
             <a className="flex items-center gap-x-2 text-small-regular py-2">

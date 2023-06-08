@@ -9,12 +9,11 @@ import { useCart } from "medusa-react";
 import { useMemo, useState, useRef, useEffect } from "react";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import ProductPreview from "../product-preview";
-import { PricedProduct } from "@medusajs/medusa/dist/types/pricing"
-
+import { PricedProduct } from "@medusajs/medusa/dist/types/pricing";
 
 type RelatedProductsProps = {
-  product: PricedProduct
-}
+  product: PricedProduct;
+};
 
 const RelatedProducts = ({ product }: RelatedProductsProps) => {
   const { cart } = useCart();
@@ -24,6 +23,8 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
   const autoplayFrameRef = useRef<number | null>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [scrollStep, setScrollStep] = useState(1);
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [isSlideshowPlaying, setIsSlideshowPlaying] = useState(true);
 
   const queryParams: StoreGetProductsParams = useMemo(() => {
     const params: StoreGetProductsParams = {};
@@ -54,6 +55,13 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
   );
 
   const previews = usePreviews({ pages: data?.pages, region: cart?.region });
+
+  // Function to sort the previews array so that "Välja müüdud" products appear last
+  const sortedPreviews = useMemo(() => {
+    const soldOutPreviews = previews.filter((preview) => !preview.inStock);
+    const inStockPreviews = previews.filter((preview) => preview.inStock);
+    return [...inStockPreviews, ...soldOutPreviews];
+  }, [previews]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -86,31 +94,58 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
     }
 
     const scrollDistance = contentWidth - sliderWidth;
-    setScrollStep(isMobile ? sliderWidth / 800 : sliderWidth / 2400); // Adjust the scroll step as needed
+    const scrollStep = isMobile ? sliderWidth / 850 : sliderWidth / 3100; // Adjust the scroll step as needed
 
     const scroll = () => {
-      if (!isHovered) {
-        let newPosition = scrollPosition + scrollStep;
-
-        if (newPosition > scrollDistance) {
-          newPosition = 0;
+      if (!isHovered && isSlideshowPlaying) {
+        const remainingDistance = scrollDistance - scrollPosition;
+        let step = scrollStep;
+    
+        if (remainingDistance < scrollStep) {
+          step = remainingDistance; // Adjust the step to the remaining distance if it's smaller than the scroll step
         }
-
+    
+        let newPosition = scrollPosition + step;
+    
+        if (newPosition >= scrollDistance) {
+          const distanceToFirst = newPosition - scrollDistance;
+          newPosition = step - distanceToFirst; // Calculate the new position to create a smooth transition
+        }
+    
         setScrollPosition(newPosition);
         sliderElement.scrollTo(newPosition, 0);
-
-        autoplayFrameRef.current = requestAnimationFrame(scroll);
+    
+        if (newPosition === 0) {
+          // Slideshow reached the end, delay before restarting
+          setIsSlideshowPlaying(false);
+          setTimeout(() => {
+            setIsSlideshowPlaying(true);
+          }, 2000); // Adjust the delay duration as needed
+        } else {
+          autoplayFrameRef.current = requestAnimationFrame(scroll);
+        }
       }
     };
 
-    autoplayFrameRef.current = requestAnimationFrame(scroll);
+    if (isSlideshowPlaying) {
+      autoplayFrameRef.current = requestAnimationFrame(scroll);
+    }
 
     return () => {
       if (autoplayFrameRef.current) {
         cancelAnimationFrame(autoplayFrameRef.current);
       }
     };
-  }, [isHovered, scrollPosition, isMobile]);
+  }, [isHovered, scrollPosition, isMobile, isSlideshowPlaying]);
+
+  useEffect(() => {
+    return () => {
+      // Cancel the ongoing query when the component unmounts
+      if (isFetchingNextPage) {
+        fetchNextPage();
+      }
+    };
+  }, [isFetchingNextPage, fetchNextPage]);
 
   const handleMouseEnter = () => {
     setIsHovered(true);
@@ -120,12 +155,40 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
     setIsHovered(false);
   };
 
-  const handleTouchStart = () => {
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     setIsHovered(true);
+    setTouchStartX(e.touches[0].clientX);
   };
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
     setIsHovered(false);
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchDistance = touchEndX - touchStartX;
+
+    const sliderElement = sliderRef.current;
+    if (!sliderElement) {
+      return;
+    }
+
+    const sliderWidth = sliderElement.offsetWidth;
+    const contentWidth = sliderElement.scrollWidth;
+
+    if (Math.abs(touchDistance) < sliderWidth / 4) {
+      return; // Swipe distance not long enough, ignore
+    }
+
+    const scrollDistance = contentWidth - sliderWidth;
+    const newPosition = scrollPosition + (touchDistance > 0 ? -scrollStep : scrollStep);
+
+    if (newPosition < 0) {
+      setScrollPosition(newPosition + scrollDistance);
+    } else if (newPosition > scrollDistance) {
+      setScrollPosition(newPosition - scrollDistance);
+    } else {
+      setScrollPosition(newPosition);
+    }
+
+    sliderElement.scrollTo(newPosition, 0);
   };
 
   return (
@@ -142,23 +205,29 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
       <div className="relative">
         <div
           ref={sliderRef}
-          className="flex overflow-hidden pb-2"
+          className="flex overflow-hidden pb-2 gap-14"
           style={{
             scrollBehavior: "smooth",
+            display: "flex",
+            flexWrap: "nowrap",
+            WebkitOverflowScrolling: "touch",
+            scrollbarWidth: "none",
+            msOverflowStyle: "none",
           }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
         >
-          {previews.map((p) => (
+          {sortedPreviews.map((p, index) => (
             <div
-              key={p.id}
-              className={`flex-none ${
-                isMobile ? "w-1/2" : "w-1/5"
-              } flex justify-center`}
+              key={`${p.id}-${index}`}
+              className={`flex-none ${isMobile ? "w-1/2" : "w-1/5"} ${
+                isMobile ? "xsf" : ""
+              }`}
               style={{
-                minWidth: "20%",
+                minWidth: isMobile ? "50%" : "20%",
+                maxWidth: isMobile ? "50%" : "20%",
               }}
             >
               <ProductPreview {...p} />
@@ -166,13 +235,15 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
           ))}
 
           {isLoading &&
-            !previews.length &&
+            !sortedPreviews.length &&
             repeat(8).map((index) => (
               <div
                 key={index}
-                className={`flex-none ${
-                  isMobile ? "w-1/2" : "w-1/5"
-                } product-preview-wrapper`}
+                className={`flex-none ${isMobile ? "w-1/2" : "w-1/5"}`}
+                style={{
+                  minWidth: isMobile ? "50%" : "20%",
+                  maxWidth: isMobile ? "50%" : "20%",
+                }}
               >
                 <SkeletonProductPreview />
               </div>
@@ -181,9 +252,11 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
             repeat(getNumberOfSkeletons(data?.pages)).map((index) => (
               <div
                 key={index}
-                className={`flex-none ${
-                  isMobile ? "w-1/2" : "w-1/5"
-                } product-preview-wrapper`}
+                className={`flex-none ${isMobile ? "w-1/2" : "w-1/5"}`}
+                style={{
+                  minWidth: isMobile ? "50%" : "20%",
+                  maxWidth: isMobile ? "50%" : "20%",
+                }}
               >
                 <SkeletonProductPreview />
               </div>
@@ -191,7 +264,7 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
         </div>
       </div>
 
-      {data?.pages[data.pages.length - 1].nextPage && previews.length > 0 && (
+      {data?.pages[data.pages.length - 1].nextPage && sortedPreviews.length > 0 && (
         <div className="flex items-center justify-center mt-8">
           <Button
             isLoading={isLoading}
@@ -207,6 +280,15 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
 };
 
 export default RelatedProducts;
+
+
+
+
+
+
+
+
+
 
 // import { fetchProductsList } from "@lib/data";
 // import usePreviews from "@lib/hooks/use-previews";

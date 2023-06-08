@@ -5,17 +5,28 @@ import Package from "@modules/common/icons/package"
 import User from "@modules/common/icons/user"
 import { formatAmount } from "medusa-react"
 import Link from "next/link"
+import { useAccount } from "@lib/context/account-context"
+import { useRouter } from "next/router"
+import LogOutIcon from '@modules/common/icons/logout'
 
 type OverviewProps = {
   orders?: Order[]
   customer?: Omit<Customer, "password_hash">
 }
 
+const formatDate = (date: string) => {
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  return new Date(date).toLocaleDateString("et-EE", options);
+};
+
 const Overview = ({ orders, customer }: OverviewProps) => {
+  const { route } = useRouter()
+  const { handleLogout } = useAccount()
+
   return (
     <div>
-      <div className="small:hidden">
-        <div className="text-xl-semi mb-4 px-8">
+      <div className="lg:hidden">
+        <div className="text-xl-semi xsf:text-lg mb-4 sm:px-8 px-4">
           Tere {customer?.first_name}
         </div>
         <div className="text-base-regular">
@@ -52,13 +63,23 @@ const Overview = ({ orders, customer }: OverviewProps) => {
                   <ChevronDown className="transform -rotate-90" />
                 </a>
               </Link>
+              <Link href="/account/orders">
+                <a className="flex items-center justify-between py-4 border-b border-gray-200 px-8">
+                  <div className="flex items-center gap-x-2">
+                    <LogOutIcon size={16} />
+                    <button type="button" onClick={handleLogout}>
+                      Logi välja
+                    </button>
+                  </div>
+                </a>
+              </Link>
             </li>
           </ul>
         </div>
       </div>
 
-      <div className="hidden small:block">
-        <div className="text-xl-semi flex justify-between items-start mb-4">
+      <div className="md:block">
+        <div className="hidden text-xl-semi lg:flex justify-between items-start mb-4">
           <span>Tere {customer?.first_name}</span>
           <span className="text-small-regular text-gray-700">
             Sisse logitud:{" "}
@@ -67,7 +88,7 @@ const Overview = ({ orders, customer }: OverviewProps) => {
         </div>
         <div className="flex flex-col py-8 border-t border-gray-200">
           <div className="flex flex-col gap-y-4 h-full col-span-1 row-span-2 flex-1">
-            <div className="flex items-start gap-x-16 mb-6">
+            <div className="hidden lg:flex items-start gap-x-16 mb-6">
               <div className="flex flex-col gap-y-4">
                 <h3 className="text-large-semi">Profiil</h3>
                 <div className="flex items-end gap-x-2">
@@ -93,7 +114,7 @@ const Overview = ({ orders, customer }: OverviewProps) => {
               </div>
             </div>
 
-            <div className="flex flex-col gap-y-4">
+            <div className="flex flex-col gap-y-4 p-4">
               <div className="flex items-center gap-x-2">
                 <h3 className="text-large-semi">Viimased tellimused</h3>
               </div>
@@ -116,7 +137,7 @@ const Overview = ({ orders, customer }: OverviewProps) => {
                                   Kokku 
                                 </span>
                                 <span>
-                                  {new Date(order.created_at).toDateString()}
+                                  {formatDate(order.created_at)}
                                 </span>
                                 <span>#{order.display_id}</span>
                                 <span>

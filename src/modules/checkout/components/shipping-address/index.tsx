@@ -11,11 +11,13 @@ const ShippingAddress = () => {
   return (
     <div>
       {customer && (customer.shipping_addresses?.length || 0) > 0 && (
-        <div className="mb-6 flex flex-col gap-y-4 bg-amber-100 p-4">
+        <div className="mb-6 flex flex-col gap-y-4 bg-amber-100 p-4 xsf:text-small">
           <p className="text-small-regular">
-            {`${customer.first_name}, kas tahad kasutada enda salvestatud aadressidest?`}
+            {"Kas tahad kasutada enda salvestatud aadressidest?"}
           </p>
-          <AddressSelect addresses={customer.shipping_addresses} />
+          <div className="xsf:text-small-regular">
+            <AddressSelect addresses={customer.shipping_addresses} />
+          </div>
         </div>
       )}
       <ConnectForm<CheckoutFormValues>>
@@ -31,7 +33,7 @@ const ShippingAddress = () => {
               errors={errors}
               touched={touchedFields}
             />
-            <div className="grid grid-cols-2 gap-x-2">
+            <div className="grid grid-cols-2 gap-x-2 xsf:flex xsf:flex-col">
               <Input
                 label="Eesnimi"
                 {...register("shipping_address.first_name", {
@@ -41,6 +43,7 @@ const ShippingAddress = () => {
                 errors={errors}
                 touched={touchedFields}
               />
+              <div className="xsf:mt-2">
               <Input
                 label="Perekonnanimi"
                 {...register("shipping_address.last_name", {
@@ -50,6 +53,7 @@ const ShippingAddress = () => {
                 errors={errors}
                 touched={touchedFields}
               />
+              </div>
             </div>
             <Input
               label="Firma"
@@ -68,22 +72,23 @@ const ShippingAddress = () => {
               touched={touchedFields}
             />
             <Input
-              label="Korterid, sviidid jne."
+              label="Korterid, jne."
               {...register("shipping_address.address_2")}
               autoComplete="address-line2"
               errors={errors}
               touched={touchedFields}
             />
-            <div className="grid grid-cols-[122px_1fr] gap-x-2">
+            <div className="grid grid-cols-[122px_1fr] gap-x-2 xsf:flex xsf:flex-col">
               <Input
                 label="Postiindeks"
                 {...register("shipping_address.postal_code", {
-                  required: "Postal code is required",
+                  required: "Postiindeks on nõutud",
                 })}
                 autoComplete="postal-code"
                 errors={errors}
                 touched={touchedFields}
               />
+              <div className="xsf:mt-2">
               <Input
                 label="Linn"
                 {...register("shipping_address.city", {
@@ -93,6 +98,7 @@ const ShippingAddress = () => {
                 errors={errors}
                 touched={touchedFields}
               />
+              </div>
             </div>
             {/* <CountrySelect
               {...register("shipping_address.country_code", {

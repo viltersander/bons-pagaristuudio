@@ -5,7 +5,7 @@
 // You can change the location of this file or turn off loading
 // the plugins file with the 'pluginsFile' configuration option.
 //
-// You can read more here:
+// Read more here:
 // https://on.cypress.io/plugins-guide
 // ***********************************************************
 

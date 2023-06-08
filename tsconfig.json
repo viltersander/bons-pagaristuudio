@@ -1,3 +1,4 @@
+// tsconfig
 {
   "compilerOptions": {
     "target": "es5",
@@ -40,3 +41,4 @@
     "jest-coverage"
   ]
 }
+

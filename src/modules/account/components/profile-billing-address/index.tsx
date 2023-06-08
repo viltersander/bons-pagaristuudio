@@ -101,7 +101,7 @@ const ProfileBillingAddress: React.FC<MyInformationProps> = ({ customer }) => {
 
   const currentInfo = useMemo(() => {
     if (!customer.billing_address) {
-      return "No billing address"
+      return "Arveldusaadress puudub"
     }
 
     const country =

@@ -151,7 +151,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
         <Modal.Title>Muuda aaderssi</Modal.Title>
         <Modal.Body>
           <div className="grid grid-cols-1 gap-y-2">
-            <div className="grid grid-cols-2 gap-x-2">
+            <div className="grid grid-cols-2 gap-x-2 xsf:flex xsf:flex-col ">
               <Input
                 label="Eesnimi"
                 {...register("first_name", {
@@ -161,6 +161,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 errors={errors}
                 autoComplete="given-name"
               />
+              <div className="xsf:mt-2">
               <Input
                 label="Perekonnanimi"
                 {...register("last_name", {
@@ -170,6 +171,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 errors={errors}
                 autoComplete="family-name"
               />
+              </div>
             </div>
             <Input label="Firma" {...register("company")} errors={errors} />
             <Input
@@ -187,7 +189,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
               errors={errors}
               autoComplete="address-line2"
             />
-            <div className="grid grid-cols-[144px_1fr] gap-x-2">
+            <div className="grid grid-cols-[144px_1fr] gap-x-2 xsf:flex xsf:flex-col">
               <Input
                 label="Postiindeks"
                 {...register("postal_code", {
@@ -197,6 +199,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 errors={errors}
                 autoComplete="postal-code"
               />
+              <div className="xsf:mt-2">
               <Input
                 label="Linn"
                 {...register("city", {
@@ -205,7 +208,8 @@ const EditAddress: React.FC<EditAddressProps> = ({
                 errors={errors}
                 required
                 autoComplete="locality"
-              />
+                />
+              </div>
             </div>
             {/* <Input
               label="Province / State"
@@ -230,6 +234,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
             <div className="text-rose-500 text-small-regular py-2">{error}</div>
           )}
         </Modal.Body>
+        <div className="xsf:flex xsf:justify-center  xsf:mt-4 mt-2">
         <Modal.Footer>
           <Button variant="secondary" onClick={close}>
             Tühista
@@ -239,6 +244,7 @@ const EditAddress: React.FC<EditAddressProps> = ({
             {submitting && <Spinner />}
           </Button>
         </Modal.Footer>
+        </div>
       </Modal>
     </>
   )

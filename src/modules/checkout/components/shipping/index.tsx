@@ -121,7 +121,7 @@ const Shipping: React.FC<ShippingProps> = ({ cart }) => {
                         key={option.value}
                         value={option.value}
                         className={clsx(
-                          "flex items-center justify-between text-small-regular cursor-pointer py-4 border-b border-gray-200 last:border-b-0 px-8",
+                          "flex items-center justify-between text-small-regular cursor-pointer py-4 border-b border-gray-200 last:border-b-0 px-8 xsf:px-6",
                           {
                             "bg-gray-50": option.value === value,
                           }

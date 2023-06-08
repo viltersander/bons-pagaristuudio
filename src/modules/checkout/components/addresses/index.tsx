@@ -15,9 +15,9 @@ const Addresses = () => {
   } = useCheckout()
   return (
     <div className="bg-white">
-      <div className="text-xl-semi flex items-center gap-x-4 px-8 pb-6 pt-8">
-        <div className="bg-gray-900 w-8 h-8 rounded-full text-white flex justify-center items-center text-sm">
-          1
+      <div className="sm:text-xl-semi xsf:text-base-regular xsf:font-bold flex items-center gap-x-4 px-8 pb-6 pt-8 xsf:px-5">
+        <div className="bg-gray-900 w-8 h-8 xsf:h-6 xsf:w-6 rounded-full text-white flex justify-center items-center text-sm">
+          <span>1</span>
         </div>
         <h2>Transpordi aadress</h2>
       </div>
@@ -33,8 +33,8 @@ const Addresses = () => {
           </div>
           {!checked && (
             <div>
-              <div className="text-xl-semi flex items-center gap-x-4 pb-6 pt-8">
-                <div className="bg-gray-900 w-8 h-8 rounded-full text-white flex justify-center items-center font-mono text-sm">
+              <div className="sm:text-xl-semi text-bold flex items-center gap-x-4 pb-6 pt-8">
+                <div className="bg-gray-900 w-8 h-8 xsf:h-6 xsf:w-8  rounded-full text-white flex justify-center items-center font-mono text-sm">
                   2
                 </div>
                 <h2>Makse aadress</h2>
@@ -51,13 +51,13 @@ const Addresses = () => {
         </div>
       ) : (
         <div>
-          <div className="bg-gray-50 px-8 py-6 text-small-regular">
+          <div className="bg-gray-50 xsf:px-3 px-8 py-6 text-small-regular">
             {cart && cart.shipping_address ? (
-              <div className="flex items-start gap-x-8">
+              <div className="flex items-start gap-x-8 xsf:gap-x-2">
                 <div className="bg-green-400 rounded-full min-w-[24px] h-6 flex items-center justify-center text-white text-small-regular">
                   ✓
                 </div>
-                <div className="flex items-start justify-between w-full">
+                <div className="flex items-start justify-between xsf:flex-col w-full">
                   <div className="flex flex-col">
                     <span>
                       {cart.shipping_address.first_name}{" "}
@@ -87,7 +87,7 @@ const Addresses = () => {
                       </div>
                     )}
                   </div>
-                  <div>
+                  <div className="xsf:mt-2 border p-2 rounded hover:bg-black hover:text-white">
                     <button onClick={setEdit}>Muuda</button>
                   </div>
                 </div>
@@ -101,7 +101,7 @@ const Addresses = () => {
           {!checked && (
             <div>
               <div className="text-xl-semi flex items-center gap-x-4 px-8 pb-6 pt-8">
-                <div className="bg-gray-900 w-8 h-8 rounded-full text-white flex justify-center items-center font-mono text-sm">
+                <div className="bg-gray-900 w-8 h-8 rounded-full text-white flex justify-center items-center font-mono xsf:h-5 xsf:w-6 text-sm">
                   2
                 </div>
                 <h2>Makse aadress</h2>

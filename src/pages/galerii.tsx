@@ -8,11 +8,11 @@ const Blog: NextPageWithLayout = () => {
   return (
     <>
       <Head
-        title="Blogi"
-        description="Böns blogi."
+        title="Galerii"
+        description="Böns galerii."
       />
       <div className="flex flex-col min-h-[calc(100vh-64px)] p-6">
-        <h1 className="text-2xl-semi text-gry-900">Blogi</h1>
+        <h1 className="text-2xl-semi text-gry-900">Galerii</h1>
         <Link href="/">
           <a className="mt-4 underline text-base-regular text-gray-900">
             Mine avalehele

@@ -97,7 +97,7 @@ const AddAddress: React.FC = () => {
         <Modal.Title>Lisa aadress</Modal.Title>
         <Modal.Body>
           <div className="grid grid-cols-1 gap-y-2">
-            <div className="grid grid-cols-2 gap-x-2">
+            <div className="grid grid-cols-2 gap-x-2 xsf:flex xsf:flex-col">
               <Input
                 label="Eesnimi"
                 {...register("first_name", {
@@ -107,6 +107,7 @@ const AddAddress: React.FC = () => {
                 errors={errors}
                 autoComplete="given-name"
               />
+              <div className="xsf:mt-2">
               <Input
                 label="Perekonnanimi"
                 {...register("last_name", {
@@ -116,6 +117,7 @@ const AddAddress: React.FC = () => {
                 errors={errors}
                 autoComplete="family-name"
               />
+              </div>
             </div>
             <Input label="Firma" {...register("company")} errors={errors} />
             <Input
@@ -133,7 +135,7 @@ const AddAddress: React.FC = () => {
               errors={errors}
               autoComplete="address-line2"
             />
-            <div className="grid grid-cols-[144px_1fr] gap-x-2">
+            <div className="grid grid-cols-[144px_1fr] gap-x-2 xsf:flex xsf:flex-col">
               <Input
                 label="Postiindeks"
                 {...register("postal_code", {
@@ -143,6 +145,7 @@ const AddAddress: React.FC = () => {
                 errors={errors}
                 autoComplete="postal-code"
               />
+              <div className="xsf:mt-2">
               <Input
                 label="Linn"
                 {...register("city", {
@@ -152,8 +155,9 @@ const AddAddress: React.FC = () => {
                 required
                 autoComplete="locality"
               />
+              </div>
             </div>
-            <Input
+            {/* <Input
               label="Province / State"
               {...register("province")}
               errors={errors}
@@ -162,7 +166,7 @@ const AddAddress: React.FC = () => {
             <CountrySelect
               {...register("country_code", { required: true })}
               autoComplete="country"
-            />
+            /> */}
             <Input
               label="Telefon"
               {...register("phone", {
@@ -177,6 +181,7 @@ const AddAddress: React.FC = () => {
             <div className="text-rose-500 text-small-regular py-2">{error}</div>
           )}
         </Modal.Body>
+        <div className="xsf:flex xsf:justify-center xsf:mt-4 mt-2">
         <Modal.Footer>
           <Button
             className="!bg-gray-200 !text-gray-900 !border-gray-200 min-h-0"
@@ -189,6 +194,7 @@ const AddAddress: React.FC = () => {
             {submitting && <Spinner />}
           </Button>
         </Modal.Footer>
+        </div>
       </Modal>
     </>
   )

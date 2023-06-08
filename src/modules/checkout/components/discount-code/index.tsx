@@ -113,7 +113,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
           </div>
         ) : (
           <form onSubmit={handleSubmit(onApply)} className="w-full">
-            <div className="grid grid-cols-[1fr_80px] gap-x-2">
+            <div className="grid grid-cols-[1fr_80px] xsf:grid-cols-[1fr_50px]  gap-x-2">
               <Input
                 label="Kood"
                 {...register("discount_code", {
@@ -123,7 +123,7 @@ const DiscountCode: React.FC<DiscountCodeProps> = ({ cart }) => {
               />
               <div>
                 <Button
-                  className="!min-h-[0] h-[46px] w-[80px]"
+                  className="!min-h-[0] h-[46px] w-[80px] xsf:w-[50px]"
                   disabled={isLoading}
                   isLoading={isLoading}
                 >

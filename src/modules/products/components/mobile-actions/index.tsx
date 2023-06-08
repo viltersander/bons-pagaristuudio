@@ -81,7 +81,7 @@ const MobileActions: React.FC<MobileActionsProps> = ({ product, show }) => {
                   <ChevronDown />
                 </div>
               </Button>
-              <Button onClick={addToCart}>{!inStock ? "Out of stock" : "Add to cart"}</Button>
+              <Button onClick={addToCart}>{!inStock ? "Välja müüdud" : "Lisa ostukorvi"}</Button>
             </div>
           </div>
         </Transition>

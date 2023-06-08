@@ -59,7 +59,7 @@ const ImageGallery = ({ images }: ImageGalleryProps) => {
                 objectFit="cover"
                 priority={index <= 2 ? true : false}
                 className="absolute inset-0"
-                alt={`Product image ${index + 1}`}
+                alt={`Toote pilt ${index + 1}`}
               />
             </div>
           )

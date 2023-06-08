@@ -50,7 +50,7 @@ const CardNumber = ({
   return (
     <div className="border-b border-gray-200 py-2 relative">
       <span className="absolute -top-6 text-gray-700 text-base-regular">
-        Card number
+        Kaardi number
       </span>
       <CardNumberElement options={options} />
     </div>
@@ -65,7 +65,7 @@ const CardExpiry = ({
   return (
     <div className="border-b border-gray-200 w-full py-2 relative">
       <span className="absolute -top-6 text-gray-700 text-base-regular">
-        Expiration date
+        Aegumiskuupäev
       </span>
       <CardExpiryElement options={options} />
     </div>

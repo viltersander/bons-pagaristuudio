@@ -18,15 +18,14 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
 
   const inView = useIntersection(info, "0px")
 
-  // Check if the product belongs to the "kringel" collection
-  const isKringelProduct = product.collection?.handle === "kringlid";
+
 
   return (
     <div className="pt-4">
     <ProductProvider product={product}>
       <div className="content-container flex flex-col small:flex-row small:items-start py-6 relative">
         <div className="flex flex-col gap-y-8  w-full sm:w-[70%] md:w-[50%] lg:w-[50%] content-container">
-          <ImageGallery images={(product?.images || [])} />
+          <ImageGallery images={product?.images || []} />
         </div>
         <div
           className="small:sticky small:top-20 w-full py-8 small:py-0 small:max-w-[344px] medium:max-w-[400px] flex flex-col gap-y-12"
@@ -36,7 +35,6 @@ const ProductTemplate: React.FC<ProductTemplateProps> = ({ product }) => {
           <ProductTabs product={product} />
         </div>
       </div>
-      {/* Render the related products section only if the product is not in the "kringel" collection */}
         <div className="content-container my-16 px-6 small:px-8 small:my-32">
         
           <RelatedProducts product={product} />

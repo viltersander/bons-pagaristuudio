@@ -126,9 +126,9 @@ export const fetchProductsList = async ({
     ...queryParams,
   })
 
-  console.log("Products:", products)
-  console.log("Count:", count)
-  console.log("Offset:", offset)
+  // console.log("Products:", products)
+  // console.log("Count:", count)
+  // console.log("Offset:", offset)
 
   return {
     response: { products, count },

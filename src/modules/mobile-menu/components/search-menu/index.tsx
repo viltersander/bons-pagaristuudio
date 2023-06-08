@@ -31,7 +31,7 @@ const SearchMenu = () => {
           </div>
         </div>
 
-        <div className="py-4 px-8">
+        <div className="py-4 px-8 xsf:px-4">
           <MobileHits hitComponent={MobileHit} />
         </div>
       </div>

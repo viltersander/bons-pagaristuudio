@@ -60,15 +60,15 @@ const DropdownMenu = () => {
                 </button>
               </a>
             </Link>
-            <Link href="/blog" passHref>
+            <Link href="/galerii" passHref>
               <a className="relative flex pl-6 h-full">
                 <button
                   className={clsx(
                     "relative h-full flex items-center transition-all ease-out duration-200"
                   )}
-                  onClick={() => push("/blog")}
+                  onClick={() => push("/galerii")}
                 >
-                  Blogi
+                  Galerii
                 </button>
               </a>
             </Link>

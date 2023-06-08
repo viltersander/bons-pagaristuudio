@@ -50,7 +50,14 @@ const InfiniteProducts = ({ params }: InfiniteProductsType) => {
       }
     );
 
-  const previews = usePreviews({ pages: data?.pages, region: cart?.region })
+  const previews = usePreviews({ pages: data?.pages, region: cart?.region });
+
+  // Function to sort the previews array so that "Välja müüdud" products appear last
+  const sortedPreviews = useMemo(() => {
+    const soldOutPreviews = previews.filter((preview) => !preview.inStock);
+    const inStockPreviews = previews.filter((preview) => preview.inStock);
+    return [...inStockPreviews, ...soldOutPreviews];
+  }, [previews]);
 
   useEffect(() => {
     if (inView && hasNextPage) {
@@ -61,14 +68,14 @@ const InfiniteProducts = ({ params }: InfiniteProductsType) => {
 
   return (
     <div className="flex-1 content-container">
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4 gap-x-12 gap-y-12 flex-1">
-        {previews.map((p) => (
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 p-16 sm:p-12 xsf:p-6 gap-x-12 gap-y-12 flex-1">
+        {sortedPreviews.map((p) => (
           <li key={p.id}>
             <ProductPreview {...p} />
           </li>
         ))}
         {isLoading &&
-          !previews.length &&
+          !sortedPreviews.length &&
           repeat(8).map((index) => (
             <li key={index}>
               <SkeletonProductPreview />

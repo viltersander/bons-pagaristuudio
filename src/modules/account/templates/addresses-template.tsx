@@ -11,7 +11,7 @@ const AddressesTemplate = () => {
   return (
     <div className="w-full p-4">
       <div className="mb-8 flex flex-col gap-y-4">
-        <h1 className="text-2xl-semi">Tarneaadressid</h1>
+        <h1 className="text-xl-semi sm:text-2xl-semi">Tarneaadressid</h1>
         <p className="text-base-regular">
           Saate vaadata ja värskendada oma tarneaadresse. Saate neid lisada nii palju kui soovite. Kui salvestate oma aadressid, on need kassasse minnes saadaval.
         </p>

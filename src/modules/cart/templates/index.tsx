@@ -22,7 +22,6 @@ const CartTemplate = () => {
         {cart.items.length ? (
           <div className="grid grid-cols-1 small:grid-cols-[1fr_360px] gap-x-8">
             <div className="flex flex-col bg-white p-6 gap-y-6">
-              {!customer && <SignInPrompt />}
               <ItemsTemplate region={cart?.region} items={items} />
             </div>
             <div className="relative">
@@ -34,6 +33,9 @@ const CartTemplate = () => {
                     </div>
                     <div className="bg-white p-6">
                       <DiscountCode cart={cart} />
+                    </div>
+                    <div className="bg-white p-6">
+                      {!customer && <SignInPrompt />}
                     </div>
                   </>
                 )}

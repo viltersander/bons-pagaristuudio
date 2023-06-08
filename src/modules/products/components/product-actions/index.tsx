@@ -36,7 +36,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
           </a>
         </Link>
       )}
-      <h3 className="text-xl-regular">{product.title}</h3>
+      <h3 className="text-xl-regular xsf:text-lg xsf:font-medium">{product.title}</h3>
 
       <p className="text-base-regular">{product.description}</p>
 
@@ -70,7 +70,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
             {selectedPrice.price_type === "sale" && (
               <>
                 <p>
-                  <span className="text-gray-500">Originaall: </span>
+                  <span className="text-gray-500">Originaal: </span>
                   <span className="line-through">
                     {selectedPrice.original_price}
                   </span>

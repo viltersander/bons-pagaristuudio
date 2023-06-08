@@ -60,7 +60,7 @@ const InfiniteProducts = ({ params }: InfiniteProductsType) => {
 
   return (
     <div className="flex-1 content-container">
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-4 gap-x-12 gap-y-12 flex-1">
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 p-16 sm:p-12 xsf:p-6 gap-x-12 gap-y-12 flex-1">
         {previews.map((p) => (
           <li key={p.id}>
             <ProductPreview {...p} />

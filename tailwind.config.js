@@ -14,6 +14,10 @@ module.exports = {
         "8xl": "100rem",
       },
       screens: {
+        "sml": {'max': '768px'},
+        "xss": {'max': '380px'},
+        "xs": {'max': '360px'},
+        "xsf": {'max': '280px'},
         "2xsmall": "320px",
         "xsmall": "512px",
         "small": "1024px",

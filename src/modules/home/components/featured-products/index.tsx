@@ -14,7 +14,7 @@ const FeaturedProducts = () => {
       backgroundPosition: 'center',
     }}>
       <div className="content-container py-12" id="products">
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 mt-12 lg:grid-cols-3 max-w-screen-lg w-full mx-auto flex-wrap px-6 mb-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-12 mt-12 lg:grid-cols-3 max-w-screen-lg w-full mx-auto flex-wrap px-10 mb-10 xsf:p-2">
           <Link href="/kringlid" passHref> 
           <div className="w-76 p-2 border drop-shadow-md rounded lg:mb-10 bg-white">
             <Image
@@ -25,8 +25,8 @@ const FeaturedProducts = () => {
               objectFit="cover"
               className="rounded"
             />
-            <h1 className="text-center mt-4 ">Magusad kringlid</h1>
-            <p className="mt-4 p-4 pb-6 text-start">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia </p>
+            <h1 className="text-center mt-2 sm:mt-4 xsf:mt-1">Magusad kringlid</h1>
+            <p className=" p-4 pb-4 sm:pb-6 text-start xsf:text-sm xsf:p-2 xsf:my-2 ">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia </p>
             <Button>Tutvu lähemalt</Button>
           </div>
           </Link>
@@ -40,8 +40,8 @@ const FeaturedProducts = () => {
               objectFit="cover"
               className="rounded"
             />
-            <h1 className="text-center mt-4">Soolased kringlid</h1>
-            <p className="mt-4 p-4 pb-6 text-start">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia </p>
+            <h1 className="text-center mt-2 sm:mt-4 xsf:mt-1">Soolased kringlid</h1>
+            <p className=" p-4 pb-4 sm:pb-6 text-start xsf:text-sm xsf:p-2 xsf:my-2 ">Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia </p>
             <Button>Tutvu lähemalt</Button>
           </div>
           </Link>
@@ -55,8 +55,8 @@ const FeaturedProducts = () => {
               objectFit="cover"
               className="rounded"
             />
-            <h1 className="text-center mt-4">Küpsised</h1>
-            <p className="mt-4 p-4 pb-6 text-start">Meie küpsiseid saab tellida üle Eesti DPD või SmartPosti automaatidesse.</p>
+            <h1 className="text-center mt-2 sm:mt-4 xsf:mt-1">Küpsised</h1>
+            <p className=" p-4 pb-4 sm:pb-6 text-start xsf:text-sm xsf:p-2 xsf:my-2 ">Meie küpsiseid saab tellida üle Eesti DPD või SmartPosti automaatidesse.</p>
             <Button>Tutvu lähemalt</Button>
           </div>
           </Link>

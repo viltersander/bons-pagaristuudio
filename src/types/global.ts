@@ -59,6 +59,8 @@ export type ProductPreviewType = {
     difference: string
     price_type: "default" | "sale"
   }
+  inStock: boolean; // Add the inStock property here
+  collectionHandle: string; // Add collectionHandle
 }
 
 export type InfiniteProductPage = {
