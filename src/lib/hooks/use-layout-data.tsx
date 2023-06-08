@@ -101,6 +101,8 @@ const fetchFeaturedProducts = async (
               difference: "N/A",
               price_type: "default",
             },
+        inStock: inventoryAvailable,
+        collectionHandle: p.collection?.handle || "",
       }
     })
 }
