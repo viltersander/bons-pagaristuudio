@@ -15,7 +15,11 @@ type OverviewProps = {
 }
 
 const formatDate = (date: string) => {
-  const options = { year: "numeric", month: "long", day: "numeric" };
+  const options: Intl.DateTimeFormatOptions = {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
   return new Date(date).toLocaleDateString("et-EE", options);
 };
 
@@ -137,7 +141,7 @@ const Overview = ({ orders, customer }: OverviewProps) => {
                                   Kokku 
                                 </span>
                                 <span>
-                                  {formatDate(order.created_at)}
+                                  {formatDate(order.created_at.toISOString())}
                                 </span>
                                 <span>#{order.display_id}</span>
                                 <span>

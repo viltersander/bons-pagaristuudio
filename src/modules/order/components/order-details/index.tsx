@@ -16,7 +16,16 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
       paid: "makstud",
       unpaid: "maksmata",
       shipped: "saadetud",
-      captured: "kinnitatud"
+      captured: "kinnitatud",
+      partially_fulfilled: "pooleli",
+      fulfilled: "täidetud",
+      partially_shipped: "osaliselt saadetud",
+      partially_returned: "osaliselt tagastatud",
+      returned: "tagastatud",
+      requires_action: "nõuab tegevust",
+      not_paid: "pole makstud",
+      partially_refunded: "osaliselt tagastatud",
+      refunded: "tagastatud",
     };
 
     return translations[str] || str;
