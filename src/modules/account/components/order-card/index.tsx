@@ -21,7 +21,11 @@ const OrderCard = ({ order }: OrderCardProps) => {
   }, [order]);
 
   const formatDate = (date: string) => {
-    const options = { year: "numeric", month: "long", day: "numeric" };
+    const options: Intl.DateTimeFormatOptions = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
     return new Date(date).toLocaleDateString("et-EE", options);
   };
 
