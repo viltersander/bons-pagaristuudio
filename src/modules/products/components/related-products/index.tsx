@@ -94,7 +94,7 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
     }
 
     const scrollDistance = contentWidth - sliderWidth;
-    const scrollStep = isMobile ? sliderWidth / 1000 : sliderWidth / 3500; // Adjust the scroll step as needed
+    const scrollStep = isMobile ? sliderWidth / 1000 : sliderWidth / 4000; // Adjust the scroll step as needed
 
     const scroll = () => {
       if (!isHovered && isSlideshowPlaying) {
@@ -120,7 +120,7 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
           setIsSlideshowPlaying(false);
           setTimeout(() => {
             setIsSlideshowPlaying(true);
-          }, 2000); // Adjust the delay duration as needed
+          }, 2500); // Adjust the delay duration as needed
         } else {
           autoplayFrameRef.current = requestAnimationFrame(scroll);
         }
