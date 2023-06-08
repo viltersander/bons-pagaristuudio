@@ -9,7 +9,7 @@ const OrderDetails = ({ order, showStatus }: OrderDetailsProps) => {
   const items = order.items.reduce((acc, i) => acc + i.quantity, 0);
 
   const formatStatus = (str: string) => {
-    const translations = {
+    const translations: { [key: string]: string } = {
       not_fulfilled: "pole täidetud",
       awaiting: "ootel",
       canceled: "tühistatud",
