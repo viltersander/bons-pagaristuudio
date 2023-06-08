@@ -120,7 +120,7 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
           setIsSlideshowPlaying(false);
           setTimeout(() => {
             setIsSlideshowPlaying(true);
-          }, 2500); // Adjust the delay duration as needed
+          }, 3000); // Adjust the delay duration as needed
         } else {
           autoplayFrameRef.current = requestAnimationFrame(scroll);
         }
