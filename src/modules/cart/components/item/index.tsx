@@ -95,7 +95,7 @@ const Item = ({ item, region }: ItemProps) => {
               onClick={() => deleteItem(item.id)}
             >
               <Trash size={14} />
-              <span className>Eemalda</span>
+              <span>Eemalda</span>
             </button>
           </div>
           <div className="text-small-regular">
