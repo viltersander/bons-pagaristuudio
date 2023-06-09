@@ -33,7 +33,7 @@ const Addresses = () => {
           </div>
           {!checked && (
             <div>
-              <div className="sm:text-xl-semi text-bold flex items-center gap-x-4 pb-6 pt-8">
+              <div className="sm:text-xl-semi  xsf:text-base-regular xsf:font-bold text-bold flex items-center gap-x-4 pb-6 pt-8">
                 <div className="bg-gray-900 w-8 h-8 xsf:h-6 xsf:w-8  rounded-full text-white flex justify-center items-center font-mono text-sm">
                   2
                 </div>
@@ -100,7 +100,7 @@ const Addresses = () => {
           </div>
           {!checked && (
             <div>
-              <div className="text-xl-semi flex items-center gap-x-4 px-8 pb-6 pt-8">
+              <div className="text-xl-semi flex items-center xsf:text-base-regular xsf:font-bold  gap-x-4 px-8 pb-6 pt-8">
                 <div className="bg-gray-900 w-8 h-8 rounded-full text-white flex justify-center items-center font-mono xsf:h-5 xsf:w-6 text-sm">
                   2
                 </div>
