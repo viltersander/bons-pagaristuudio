@@ -63,7 +63,7 @@ export default function SimpleMap() {
   };
 
   return (
-    <div id="contact" className="p-6" style={{ position: 'relative' }}>
+    <div className="p-6" style={{ position: 'relative' }}>
       <GoogleMap
         mapContainerStyle={containerStyle}
         center={center}

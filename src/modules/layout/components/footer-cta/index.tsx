@@ -42,6 +42,7 @@ const FooterCTA = () => {
               quality={90}
               objectFit="cover"
               className="mt-4"
+              id="contact" 
             />
         </div>
     </div>
