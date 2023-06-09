@@ -54,15 +54,16 @@ const ProductPreview = ({
                   <div
                     className={clsx("border sm:px-2 px-1 rounded-lg", {
                       "border-green-500": inStock,
-                      "border-none": !inStock,
+                      "border-red-500 sm:hidden": !inStock,
                     })}
                   >
                     <span
                       className={clsx("sm:text-sm text-[13px]", {
                         "text-green-500": inStock,
+                        "text-red-500 sm:hidden": !inStock,
                       })}
                     >
-                      {!inStock ? "" : "Laos"}
+                      {!inStock ? "Välja müüdud" : "Laos"}
                     </span>
                   </div>
                 </div>
