@@ -159,38 +159,38 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
     setIsHovered(true);
     setTouchStartX(e.touches[0].clientX);
   };
-
+  
   const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
     setIsHovered(false);
     const touchEndX = e.changedTouches[0].clientX;
     const touchDistance = touchEndX - touchStartX;
-
+  
     const sliderElement = sliderRef.current;
     if (!sliderElement) {
       return;
     }
-
+  
     const sliderWidth = sliderElement.offsetWidth;
     const contentWidth = sliderElement.scrollWidth;
-
+  
     if (Math.abs(touchDistance) < sliderWidth / 4) {
       return; // Swipe distance not long enough, ignore
     }
-
+  
     const scrollDistance = contentWidth - sliderWidth;
-    const newPosition = scrollPosition + (touchDistance > 0 ? -scrollStep : scrollStep);
-
+    const newPosition = scrollPosition + touchDistance;
+  
     if (newPosition < 0) {
-      setScrollPosition(newPosition + scrollDistance);
+      setScrollPosition(0);
     } else if (newPosition > scrollDistance) {
-      setScrollPosition(newPosition - scrollDistance);
+      setScrollPosition(scrollDistance);
     } else {
       setScrollPosition(newPosition);
     }
-
-    sliderElement.scrollTo(newPosition, 0);
+  
+    sliderElement.scrollTo({ left: newPosition, behavior: "smooth" });
   };
-
+  
   return (
     <div className="product-page-constraint">
       <div className="flex flex-col items-center text-center mb-16">
@@ -213,6 +213,7 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
             WebkitOverflowScrolling: "touch",
             scrollbarWidth: "none",
             msOverflowStyle: "none",
+            touchAction: "none",
           }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
