@@ -13,7 +13,7 @@ const FooterNav = () => {
           <Link href="/" passHref>
             <a className="text-regular">Korduvad küsimused</a>
           </Link>
-          <Link href="/" passHref>
+          <Link href="/galerii" passHref>
             <a className="text-regular">Galerii</a>
           </Link>
           <div className="flex align-center justify-center gap-8 order-5 lg:order-none md:order-none ">

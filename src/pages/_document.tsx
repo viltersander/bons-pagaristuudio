@@ -6,6 +6,7 @@ class MyDocument extends Document {
     const uri = MEDUSA_BACKEND_URL
     const { hostname } = new URL(uri)
 
+    
     return (
       <Html lang="en">
         <Head>
@@ -15,6 +16,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
             rel="stylesheet"
           />
+          <script src="https://maps.googleapis.com/maps/api/js?"></script>
         </Head>
         <body>
           <Main />

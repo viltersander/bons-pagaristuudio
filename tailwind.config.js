@@ -18,6 +18,7 @@ module.exports = {
         "xss": {'max': '380px'},
         "xs": {'max': '360px'},
         "xsf": {'max': '280px'},
+        "smi": {'min': '780px'},
         "2xsmall": "320px",
         "xsmall": "512px",
         "small": "1024px",

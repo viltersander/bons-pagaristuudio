@@ -23,7 +23,6 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
   const autoplayFrameRef = useRef<number | null>(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const [scrollStep, setScrollStep] = useState(1);
-  const [touchStartX, setTouchStartX] = useState(0);
   const [isSlideshowPlaying, setIsSlideshowPlaying] = useState(true);
 
   const queryParams: StoreGetProductsParams = useMemo(() => {
@@ -100,21 +99,21 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
       if (!isHovered && isSlideshowPlaying) {
         const remainingDistance = scrollDistance - scrollPosition;
         let step = scrollStep;
-    
+
         if (remainingDistance < scrollStep) {
           step = remainingDistance; // Adjust the step to the remaining distance if it's smaller than the scroll step
         }
-    
+
         let newPosition = scrollPosition + step;
-    
+
         if (newPosition >= scrollDistance) {
           const distanceToFirst = newPosition - scrollDistance;
           newPosition = step - distanceToFirst; // Calculate the new position to create a smooth transition
         }
-    
+
         setScrollPosition(newPosition);
         sliderElement.scrollTo(newPosition, 0);
-    
+
         if (newPosition === 0) {
           // Slideshow reached the end, delay before restarting
           setIsSlideshowPlaying(false);
@@ -155,42 +154,6 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
     setIsHovered(false);
   };
 
-  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    setIsHovered(true);
-    setTouchStartX(e.touches[0].clientX);
-  };
-  
-  const handleTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
-    setIsHovered(false);
-    const touchEndX = e.changedTouches[0].clientX;
-    const touchDistance = touchEndX - touchStartX;
-  
-    const sliderElement = sliderRef.current;
-    if (!sliderElement) {
-      return;
-    }
-  
-    const sliderWidth = sliderElement.offsetWidth;
-    const contentWidth = sliderElement.scrollWidth;
-  
-    if (Math.abs(touchDistance) < sliderWidth / 4) {
-      return; // Swipe distance not long enough, ignore
-    }
-  
-    const scrollDistance = contentWidth - sliderWidth;
-    const newPosition = scrollPosition + touchDistance;
-  
-    if (newPosition < 0) {
-      setScrollPosition(0);
-    } else if (newPosition > scrollDistance) {
-      setScrollPosition(scrollDistance);
-    } else {
-      setScrollPosition(newPosition);
-    }
-  
-    sliderElement.scrollTo({ left: newPosition, behavior: "smooth" });
-  };
-  
   return (
     <div className="product-page-constraint">
       <div className="flex flex-col items-center text-center mb-16">
@@ -213,12 +176,9 @@ const RelatedProducts = ({ product }: RelatedProductsProps) => {
             WebkitOverflowScrolling: "touch",
             scrollbarWidth: "none",
             msOverflowStyle: "none",
-            touchAction: "none",
           }}
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
-          onTouchStart={handleTouchStart}
-          onTouchEnd={handleTouchEnd}
         >
           {sortedPreviews.map((p, index) => (
             <div

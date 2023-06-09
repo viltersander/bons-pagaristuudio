@@ -27,7 +27,7 @@ const ProductPreview = ({
         <div className="md:w-48 lg:w-56 sm:w-48 flex-shrink-0">
           <Thumbnail thumbnail={thumbnail} size="full" />
           <div className="text-base-regular sm:p-4 xsf:pt-2 pt-3 sm:pt-4 p-3 xsf:p-[0.6rem] border-2 rounded-b max-w-[225px] mx-auto flex flex-col h-full">
-            <span className="break-words flex-grow">{title}</span>
+            <span className="break-words">{title}</span>
             <div className="sm:flex sm:items-center justify-between items-start flex flex-col sm:flex-row xsf:items-start xsf:flex-col mt-2 xsf:mt-2">
               {price ? (
                 <>
@@ -52,7 +52,7 @@ const ProductPreview = ({
               {!isKringlidProduct && (
                 <div>
                   <div
-                    className={clsx("border sm:px-2 px-1 rounded-lg", {
+                    className={clsx("border px-2 xsf:px-1 rounded-lg", {
                       "border-green-500": inStock,
                       "border-red-500 sm:hidden": !inStock,
                     })}
