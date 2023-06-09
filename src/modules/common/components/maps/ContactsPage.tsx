@@ -20,7 +20,7 @@ const mapOptions = {
 const InfoWindowContent = () => (
   <div>
     <h2 className="font-bold text-sm">Böns Pagaristuudio</h2>
-    <div className="font-normal tracking-wide">
+    <div className="font-normal tracking-wide leading-snug">
       <p>Kohtu 1a, Kuressaare, Eesti</p>
       <p>Tel 5335 8141</p>
       <p>bonspagar@gmail.com</p>
