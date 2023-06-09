@@ -16,7 +16,7 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
             rel="stylesheet"
           />
-          <script src="https://maps.googleapis.com/maps/api/js?"></script>
+          <script async src="https://maps.googleapis.com/maps/api/js"></script>
         </Head>
         <body>
           <Main />
