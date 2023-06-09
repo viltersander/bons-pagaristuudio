@@ -26,12 +26,12 @@ const ProductPreview = ({
       <a onClick={onClick} className="flex flex-col">
         <div className="md:w-48 lg:w-56 sm:w-48 flex-shrink-0">
           <Thumbnail thumbnail={thumbnail} size="full" />
-          <div className="text-base-regular sm:p-4 xsf:pt-2 pt-4 p-2 xsf:p-[0.6rem] border-2 rounded-b max-w-[225px] mx-auto flex flex-col h-full">
+          <div className="text-base-regular sm:p-4 xsf:pt-2 pt-3 sm:pt-4 p-3 xsf:p-[0.6rem] border-2 rounded-b max-w-[225px] mx-auto flex flex-col h-full">
             <span className="break-words flex-grow">{title}</span>
             <div className="sm:flex sm:items-center justify-between items-start flex flex-col sm:flex-row xsf:items-start xsf:flex-col mt-2 xsf:mt-2">
               {price ? (
                 <>
-                  <div className="flex items-center gap-x-1 text-[14px] sm:text-sm">
+                  <div className="flex items-center gap-x-1 text-[14px] sm:text-sm sm:mb-0 mb-1">
                     {price.price_type === "sale" && (
                       <span className="line-through text-gray-500">
                         {price.original_price}
