@@ -28,7 +28,7 @@ const ProductPreview = ({
           <Thumbnail thumbnail={thumbnail} size="full" />
           <div className="text-base-regular p-4 xsf:pt-2 pt-4 border-2 rounded-b max-w-[220px] mx-auto flex flex-col h-full">
             <span className="break-words flex-grow">{title}</span>
-            <div className="flex items-center justify-between mt-2 xsf:mt-1">
+            <div className="flex items-center justify-between xsf:flex-col mt-2 xsf:mt-1">
               {price ? (
                 <>
                   <div className="flex items-center gap-x-1 text-[14px] sm:text-sm">
@@ -63,7 +63,7 @@ const ProductPreview = ({
                         "text-red-500 sm:hidden": !inStock,
                       })}
                     >
-                      {!inStock ? "Välja müüdud" : "Laos"}
+                      {!inStock ? "Läbimüüdud" : "Laos"}
                     </span>
                   </div>
                 </div>
@@ -76,7 +76,7 @@ const ProductPreview = ({
                 </Link>
               ) : (
                 <Button disabled={!inStock} className="sm:block xsf:text-xs hidden">
-                  {!inStock ? "Välja müüdud" : "Vaata lähemalt"}
+                  {!inStock ? "Läbimüüdud" : "Vaata lähemalt"}
                 </Button>
               )}
             </div>
