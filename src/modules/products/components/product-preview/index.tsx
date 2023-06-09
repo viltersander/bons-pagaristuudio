@@ -26,7 +26,7 @@ const ProductPreview = ({
       <a onClick={onClick} className="flex flex-col">
         <div className="md:w-48 lg:w-56 sm:w-48 flex-shrink-0">
           <Thumbnail thumbnail={thumbnail} size="full" />
-          <div className="text-base-regular p-4 xsf:pt-2 pt-4 border-2 rounded-b max-w-[225px] xsf:max-[230px] mx-auto flex flex-col h-full">
+          <div className="text-base-regular sm:p-4 xsf:pt-2 pt-4 p-2 xsf:p-[0.6rem] border-2 rounded-b max-w-[225px] mx-auto flex flex-col h-full">
             <span className="break-words flex-grow">{title}</span>
             <div className="sm:flex sm:items-center justify-between items-start flex flex-col sm:flex-row xsf:items-start xsf:flex-col mt-2 xsf:mt-2">
               {price ? (

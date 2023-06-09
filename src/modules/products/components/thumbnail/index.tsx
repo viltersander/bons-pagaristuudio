@@ -19,7 +19,7 @@ const Thumbnail: React.FC<ThumbnailProps> = ({
 
   return (
     <div
-      className={clsx("relative aspect-[29/34] max-w-[225px] mx-auto xsf:max-w-[230px]", {
+      className={clsx("relative aspect-[29/34] max-w-[225px] mx-auto", {
         "w-[180px]": size === "small",
         "w-[290px]": size === "medium",
         "w-[440px]": size === "large",
