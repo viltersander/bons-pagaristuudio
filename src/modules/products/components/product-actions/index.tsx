@@ -97,7 +97,7 @@ const ProductActions: React.FC<ProductActionsProps> = ({ product }) => {
         </Link>
       ) : (
         <Button onClick={addToCart} disabled={!inStock}>
-          {!inStock ? "Välja müüdud" : "Lisa ostukorvi"}
+          {!inStock ? "Läbi müüdud" : "Lisa ostukorvi"}
         </Button>
       )}
     </div>
