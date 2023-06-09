@@ -1,4 +1,3 @@
-// postcss
 module.exports = {
   plugins: {
     tailwindcss: {},

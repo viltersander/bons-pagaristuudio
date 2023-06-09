@@ -1,4 +1,3 @@
-// tsconfig
 {
   "compilerOptions": {
     "target": "es5",

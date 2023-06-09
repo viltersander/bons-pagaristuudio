@@ -1,4 +1,3 @@
-// prettierrc
 {
   "arrowParens": "always",
   "semi": false,

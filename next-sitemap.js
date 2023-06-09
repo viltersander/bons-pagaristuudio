@@ -1,4 +1,3 @@
-// next-sitemap
 const excludedPaths = ["/checkout", "/account/*"]
 
 module.exports = {

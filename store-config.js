@@ -1,4 +1,3 @@
-// store-config
 function withStoreConfig(nextConfig = {}) {
   const features = nextConfig.features || {}
   delete nextConfig.features
