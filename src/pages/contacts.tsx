@@ -4,6 +4,7 @@ import Link from "next/link"
 import { ReactElement } from "react"
 import { NextPageWithLayout } from "types/global"
 
+
 const Contact: NextPageWithLayout = () => {
   return (
     <>

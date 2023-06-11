@@ -128,13 +128,13 @@ const MainMenu = () => {
               </Link>
             </li>
             <li className="bg-gray-50 p-4">
-              <Link href="/galerii" passHref>
+              <Link href="/gallery" passHref>
                 <a>
                   <button
                     className="flex items-center justify-between w-full"
                     onClick={close}
                   >
-                    <span className="sr-only">Mine blogi lehele</span>
+                    <span className="sr-only">Mine galerii lehele</span>
                     <span>Galerii</span>
                     <ChevronDown className="-rotate-90" />
                   </button>

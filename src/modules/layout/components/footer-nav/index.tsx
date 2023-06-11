@@ -10,12 +10,9 @@ const FooterNav = () => {
     <div className="bg-black flex flex-col gap-y-8 pt-16 pb-8 text-white p-8 ">
       <div className="flex flex-col gap-y-6 xsmall:flex-row items-center justify-center w-full text-center">
         <div className="flex text-center flex-col md:flex-row lg:flex-row gap-8">
-          <Link href="/" passHref>
+          {/* <Link href="/" passHref>
             <a className="text-regular">Korduvad küsimused</a>
-          </Link>
-          <Link href="/galerii" passHref>
-            <a className="text-regular">Galerii</a>
-          </Link>
+          </Link> */}
           <div className="flex align-center justify-center gap-8 order-5 lg:order-none md:order-none ">
             <Link href="https://www.instagram.com/bonspagaristuudio/?igshid=YmMyMTA2M2Y%3D&fbclid=IwAR0nqxZTa18PjQoF3vAsjFWxwERGTgFzYCYEBdfTk2i4lHbL3t-yEKmL8GE" passHref>
             <Image
@@ -38,12 +35,12 @@ const FooterNav = () => {
               />
             </Link>
           </div>
-          <Link href="/" passHref>
+          {/* <Link href="/" passHref>
             <a className="text-regular">Tingimused</a>
           </Link>
           <Link href="/" passHref>
             <a className="text-regular">Privaatsuspoliitika</a>
-          </Link>
+          </Link> */}
         </div>
       </div>
       <hr className='color-white' />

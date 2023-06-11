@@ -86,7 +86,7 @@ export default function SimpleMap() {
       )}
 
       <div className="absolute sm:top-10  left-10 bg-white p-4 shadow-xl border-2 border-black rounded-lg hidden smi:block">
-        <h2>Böns Pagaristuudio</h2>
+        <h2 className='font-bold'>Böns Pagaristuudio</h2>
         <p>Kohtu 1a, Kuressaare, Eesti</p>
         <p>Tel 5335 8141</p>
         <p>bonspagar@gmail.com</p>

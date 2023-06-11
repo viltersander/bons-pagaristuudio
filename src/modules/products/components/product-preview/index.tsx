@@ -72,7 +72,7 @@ const ProductPreview = ({
             <div className="mt-0 sm:mt-4 xsf:mt-2">
               {isKringlidProduct ? (
                 <Link href={`/products/${handle}`} passHref>
-                  <Button>Telli</Button>
+                  <Button>Tellima</Button>
                 </Link>
               ) : (
                 <Button disabled={!inStock} className="sm:block xsf:text-xs hidden">
