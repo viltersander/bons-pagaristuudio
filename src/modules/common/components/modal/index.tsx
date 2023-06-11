@@ -32,7 +32,7 @@ const Modal: React.FC<ModalProps> & {
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto ">
-          <div className="flex min-h-full h-full items-center lg:justify-end p-4 text-center relative bottom-14 lg:bottom-16">
+          <div className="flex min-h-full h-full items-center lg:justify-end p-4 text-center relative bottom-14 lg:bottom-[62px]">
             <Transition.Child
               as={Fragment}
               enter="ease-out duration-300"
@@ -44,7 +44,7 @@ const Modal: React.FC<ModalProps> & {
             >
               <Dialog.Panel
                 className={clsx(
-                  "flex flex-col justify-start w-full h-full transform overflow-auto bg-white p-10 text-left align-middle shadow-xl transition-all max-h-[65vh]",
+                  "flex flex-col justify-start w-full sm:w-[350px] h-full transform overflow-auto bg-white p-10 sm:p-3 text-left align-middle shadow-xl transition-all max-h-[65vh]",
                   {
                     "max-w-md": size === "small",
                     "max-w-xl": size === "medium",
@@ -79,7 +79,7 @@ const Title: React.FC = ({ children }) => {
 
 const Description: React.FC = ({ children }) => {
   return (
-    <Dialog.Description className="flex text-small-regular text-gray-700 items-center justify-center pt-2 pb-4 h-full">
+    <Dialog.Description className="flex text-small-regular text-gray-700 items-center justify-center pt-2 pb-2 h-full">
       {children}
     </Dialog.Description>
   )

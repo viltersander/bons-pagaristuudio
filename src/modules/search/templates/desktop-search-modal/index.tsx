@@ -17,14 +17,14 @@ const DesktopSearchModal = () => {
         Otsi
       </button>
 
-      <Modal isOpen={state} close={close} size="large">
+      <Modal isOpen={state} close={close} size="small">
         <Modal.Body>
           <InstantSearch
             indexName={SEARCH_INDEX_NAME}
             searchClient={searchClient}
           >
-            <div className="flex flex-col h-full">
-              <div className="w-full flex items-center gap-x-2 bg-gray-50 p-4">
+            <div className="flex flex-col h-full sm:w-[310px]">
+              <div className="w-full sm:w-[310px] flex items-center gap-x-2 bg-gray-50 p-4">
                 <Search />
                 <SearchBox />
               </div>
