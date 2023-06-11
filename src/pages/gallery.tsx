@@ -3,6 +3,7 @@ import Layout from "@modules/layout/templates"
 import Link from "next/link"
 import { ReactElement } from "react"
 import { NextPageWithLayout } from "types/global"
+import GalleryComponent from "@modules/common/components/gallery/index"
 
 const Blog: NextPageWithLayout = () => {
   return (
@@ -11,13 +12,8 @@ const Blog: NextPageWithLayout = () => {
         title="Galerii"
         description="Böns galerii."
       />
-      <div className="flex flex-col min-h-[calc(100vh-64px)] p-6">
-        <h1 className="text-2xl-semi text-gry-900">Galerii</h1>
-        <Link href="/">
-          <a className="mt-4 underline text-base-regular text-gray-900">
-            Mine avalehele
-          </a>
-        </Link>
+      <div className="flex flex-col min-h-[calc(100vh-64px)] p-8">
+        <GalleryComponent/>
       </div>
     </>
   )
