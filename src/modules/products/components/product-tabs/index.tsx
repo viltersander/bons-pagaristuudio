@@ -19,10 +19,10 @@ const ProductTabs = ({ product }: ProductTabsProps) => {
       //   label: "Product Information",
       //   component: <ProductInfoTab product={product} />,
       // },
-      // {
-      //   label: "Transport",
-      //   component: <ShippingInfoTab />,
-      // },
+      {
+        label: "Transport",
+        component: <ShippingInfoTab />,
+      },
     ]
   }, [product])
 
@@ -104,7 +104,7 @@ const ShippingInfoTab = () => {
   return (
     <Tab.Panel className="text-small-regular py-8">
       <div className="grid grid-cols-1 gap-y-8">
-        {/* <div className="flex items-start gap-x-2">
+        <div className="flex items-start gap-x-2">
           <FastDelivery />
           <div>
             <span className="font-semibold">Kiire kohaletoomine</span>
@@ -113,7 +113,7 @@ const ShippingInfoTab = () => {
               asukohta või mugavalt teie koju.
             </p>
           </div>
-        </div> */}
+        </div>
         {/* <div className="flex items-start gap-x-2">
           <Refresh />
           <div>
