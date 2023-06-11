@@ -39,7 +39,7 @@ const Login = () => {
   })
 
   return (
-    <div className="max-w-sm w-full flex flex-col items-center py-36">
+    <div className="max-w-sm w-full flex flex-col items-center py-36 sm:py-24">
       {isSubmitting && (
         <div className="z-10 fixed inset-0 bg-white bg-opacity-50 flex items-center justify-center">
           <Spinner size={24} />
